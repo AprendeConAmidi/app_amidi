@@ -1,6 +1,6 @@
 import {serverQuestionStub} from "./ServerApiStub";
 
-export function assertStubContainQuestion(question){
+export function isStubContainQuestion(question){
   let isContain;
   for(let index in serverQuestionStub.questions){
     isContain = question === serverQuestionStub.questions[index];
