@@ -4,7 +4,7 @@ import Form from '../../src/components/Form';
 import InputEmail from '../../src/components/InputEmail';
 
 function mountPropsEmail(emails){
-  return mount(<Form emails={emails}/>)
+  return mount(<Start emails={emails}/>)
 }
 
 function clickRemoveButton(wrapper) {
