@@ -9,14 +9,19 @@ import * as PageLevelAction from '../src/actions/PageLevelAction';
 describe("<PageLevel test integration", () => {
   it('connect store test integration with questions for category in PageLevelReducer',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
-    let category = "Pastoreo y Cereal 2";
-    const action = PageLevelAction.loadQuestionsFor(category);
-    let firstQuestion = serverQuestionStub.questions.filter((question) => question.category === category)[0];
+    const action = PageLevelAction.loadQuestionsFor("Pastoreo y Cereal 2");
     await store.dispatch(action);
 
     const actual = store.getState().questions[0];
-    expect(actual).toEqual(firstQuestion);
-    expect(actual.category).toEqual(category);
+    expect(assertStubContainQuestion(actual)).toBeTruthy();
     expect(actual).not.toBeUndefined();
   });
 });
+
+function assertStubContainQuestion(question){
+  let isContain;
+  for(let index in serverQuestionStub.questions){
+    isContain = question === serverQuestionStub.questions[index];
+        if(isContain){return isContain;}
+  }
+}
