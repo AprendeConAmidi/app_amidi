@@ -1,3 +1,4 @@
 export default {
-  emails: []
+  emails: [],
+  questions: []
 };

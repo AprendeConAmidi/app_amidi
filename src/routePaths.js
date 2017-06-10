@@ -1,2 +1,2 @@
-export const INDEX = "/";
-export const POC_INPUT = "/inputs-poc";
+export const INDEX = '/';
+export const POC_INPUT = '/inputs-poc';
