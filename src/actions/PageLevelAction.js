@@ -1,4 +1,4 @@
-import {ServerApiStub as ServerApi} from '../../src/api/ServerApiStub';
+import {ServerApiStub as ServerApi} from '../api/StubApi/ServerApiStub';
 import * as type from './actionTypes';
 
    export function loadQuestionsFor(category) {

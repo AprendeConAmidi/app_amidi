@@ -1,4 +1,4 @@
-import delay from './delay';
+import delay from './StubApi/delay';
 
 const emails = ["prueba@gmail.com","jonay@gmail.com","antonio@gmail.com"];
 

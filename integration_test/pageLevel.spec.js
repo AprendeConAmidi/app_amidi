@@ -3,8 +3,9 @@ import {createStore, applyMiddleware} from 'redux';
 import rootReducer from '../src/reducers';
 import initialState from '../src/reducers/initialState';
 import thunk from 'redux-thunk';
-import {serverQuestionStub} from "../src/api/ServerApiStub";
+import * as UtilStub from "../src/api/StubApi/UtilStubApi";
 import * as PageLevelAction from '../src/actions/PageLevelAction';
+
 
 describe("<PageLevel test integration", () => {
   it('connect store test integration with questions for category in PageLevelReducer',async () =>{
@@ -13,15 +14,8 @@ describe("<PageLevel test integration", () => {
     await store.dispatch(action);
 
     const actual = store.getState().questions[0];
-    expect(assertStubContainQuestion(actual)).toBeTruthy();
+    expect(UtilStub.assertStubContainQuestion(actual)).toBeTruthy();
     expect(actual).not.toBeUndefined();
   });
 });
 
-function assertStubContainQuestion(question){
-  let isContain;
-  for(let index in serverQuestionStub.questions){
-    isContain = question === serverQuestionStub.questions[index];
-        if(isContain){return isContain;}
-  }
-}

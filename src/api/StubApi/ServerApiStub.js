@@ -1,12 +1,17 @@
 import delay from './delay';
 
+let delayParche = delay;
+
 export class ServerApiStub {
+  static zeroDelay(){
+    delayParche = 0;
+  }
 
   static loadAllQuestions(){
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(serverQuestionStub.questions);
-      }, delay);
+      }, delayParche);
     });
   }
 }
