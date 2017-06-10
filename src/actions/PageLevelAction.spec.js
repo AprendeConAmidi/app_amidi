@@ -12,7 +12,8 @@ describe("PageLevelActionShould", () => {
   beforeEach(function () {
     ServerApiStub.zeroDelay();
   });
-  it('Filter question for category',async () =>{
+
+  it('filter question for category',async () =>{
     let category = "Pastoreo y Cereal 2";
 
     const action = PageLevelAction.loadQuestionsFor(category);
@@ -20,6 +21,16 @@ describe("PageLevelActionShould", () => {
 
     const actualQuestion = state.questions[0];
     expect(actualQuestion.category).toEqual(UtilStub.getCuestionFor(category).category);
+  });
+
+  it("return only 10 questions", async () =>{
+    let category = "Pastoreo y Cereal 2";
+
+    const action = PageLevelAction.loadQuestionsFor(category);
+    let state = await executeAction(action);
+
+    const actualQuestions = state.questions;
+    expect(actualQuestions.length).toBe(10);
   });
 });
 
