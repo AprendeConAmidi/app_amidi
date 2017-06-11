@@ -21,7 +21,7 @@ describe("LevelPageActionShould", () => {
     let state = await executeAction(action);
 
     const actualQuestion = state.questions[0];
-    expect(actualQuestion.category).toEqual(UtilStub.getCuestionFor(category).category);
+    expect(actualQuestion.category).toEqual(UtilStub.getQuestionFor(category).category);
   });
 
   it("return only 10 questions", async () =>{

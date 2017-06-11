@@ -8,6 +8,10 @@ export function isStubContainQuestion(question){
   }
 }
 
-export function getCuestionFor(category){
+export function getQuestionFor(category){
   return serverQuestionStub.questions.filter((question) => question.category === category)[0];
+}
+
+export function getQuestionsFor(category){
+  return serverQuestionStub.questions.filter((question) => question.category === category);
 }
