@@ -10,17 +10,29 @@ export class LevelPage extends React.Component {
     this.state = {
       questions: Object.assign([], this.props.questions)
     };
+    this.currentQuestion = this.state.questions[0];
+
+    this.updateAnswer = this.updateAnswer.bind(this);
   }
 
+  updateAnswer(event, answer){
+
+  }
 
   render(){
     return (
-      <div>
-        {this.state.questions[0]._id}
+      <div className="text-center">
+        <h4>{this.currentQuestion.question}</h4>
+        <ul>
+          {this.currentQuestion.answers.map((answer) =>
+            <li key={answer} className="answer" onClick={this.updateAnswer}>
+              {answer}
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
-
 
 }
 
