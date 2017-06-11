@@ -11,10 +11,12 @@ describe("<LevelPage/>", () =>{
   beforeEach(function () {
     questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2");
 
-    wrapper = shallow(<LevelPage questions={questionsStub} />);
+    wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questions: questionsStub });
   });
 
-  it("render question", function () {
+  it("should render question", function () {
+
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
 
@@ -25,5 +27,13 @@ describe("<LevelPage/>", () =>{
     expect(questionStatement.length).toBe(1);
     expect(groupAnswer.length).toBe(questionsStub[0].answers.length);
   });
+
+  it("when cuurentQuestion is empty render <div></div>", function () {
+    let wrapper = shallow(<LevelPage/>);
+
+    expect(wrapper.length).toBe(1);
+    expect(wrapper.find("div").length).toBe(1);
+  });
+
 
 });

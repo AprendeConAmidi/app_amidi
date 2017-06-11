@@ -10,7 +10,9 @@ export class LevelPage extends React.Component {
     this.state = {
       questions: Object.assign([], this.props.questions)
     };
-    this.currentQuestion = this.state.questions[0];
+    if(this.state.questions.length >0) {
+      this.currentQuestion = this.state.questions[0];
+    }
 
     this.updateAnswer = this.updateAnswer.bind(this);
   }
@@ -19,19 +21,29 @@ export class LevelPage extends React.Component {
 
   }
 
+  componentWillReceiveProps(nextProps){
+    this.state = {
+      questions: Object.assign([], nextProps.questions)
+    };
+      this.currentQuestion = this.state.questions[0];
+  }
+
   render(){
-    return (
-      <div className="text-center">
-        <h4>{this.currentQuestion.question}</h4>
-        <ul>
-          {this.currentQuestion.answers.map((answer) =>
-            <li key={answer} className="answer" onClick={this.updateAnswer}>
-              {answer}
-            </li>
-          )}
-        </ul>
-      </div>
-    );
+    if(this.currentQuestion) {
+      return (
+        <div className="text-center">
+          <h4>{this.currentQuestion.question}</h4>
+          <ul>
+            {this.currentQuestion.answers.map((answer) =>
+              <li key={answer} className="answer" onClick={this.updateAnswer}>
+                {answer}
+              </li>
+            )}
+          </ul>
+        </div>
+      );
+    }
+    return <div/>;
   }
 
 }
