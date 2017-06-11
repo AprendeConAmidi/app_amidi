@@ -6,10 +6,10 @@ import thunk from 'redux-thunk';
 import * as UtilStub from "../api/StubApi/UtilStubApi";
 import {ServerApiStub} from "../api/StubApi/ServerApiStub";
 import {serverQuestionStub} from "../api/StubApi/ServerApiStub";
-import * as PageLevelAction from '../actions/PageLevelAction';
+import * as PageLevelAction from './LevelPageAction';
 
 
-describe("PageLevelActionShould", () => {
+describe("LevelPageActionShould", () => {
   beforeEach(function () {
     ServerApiStub.zeroDelay();
   });
@@ -17,7 +17,7 @@ describe("PageLevelActionShould", () => {
   it('filter question for category',async () =>{
     let category = "Pastoreo y Cereal 2";
 
-    const action = PageLevelAction.loadQuestionsForPageLevel(category);
+    const action = PageLevelAction.loadQuestionsForLevelPage(category);
     let state = await executeAction(action);
 
     const actualQuestion = state.questions[0];
@@ -27,7 +27,7 @@ describe("PageLevelActionShould", () => {
   it("return only 10 questions", async () =>{
     let category = "Pastoreo y Cereal 2";
 
-    const action = PageLevelAction.loadQuestionsForPageLevel(category);
+    const action = PageLevelAction.loadQuestionsForLevelPage(category);
     let state = await executeAction(action);
 
     const actualQuestions = state.questions;
@@ -37,7 +37,7 @@ describe("PageLevelActionShould", () => {
   it("return random questions", async () =>{
     let category = "Pastoreo y Cereal 2";
 
-    const action = PageLevelAction.loadQuestionsForPageLevel(category);
+    const action = PageLevelAction.loadQuestionsForLevelPage(category);
     let state = await executeAction(action);
 
     let isOrder = isOrderQuestions(state.questions);

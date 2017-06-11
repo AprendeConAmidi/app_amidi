@@ -1,7 +1,7 @@
 import {ServerApiStub as ServerApi} from '../api/StubApi/ServerApiStub';
 import * as type from './actionTypes';
 
-   export function loadQuestionsForPageLevel(category) {
+   export function loadQuestionsForLevelPage(category) {
      return function (dispatch) {
        return ServerApi.loadAllQuestions().then(questions => {
          const NUM_MAX_QUESTION = 10;
