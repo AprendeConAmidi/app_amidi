@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme'
+import {shallow} from 'enzyme';
 import * as UtilStub from '../../api/StubApi/UtilStubApi';
 import {LevelPage} from "./LevelPage";
 

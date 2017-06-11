@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as PageLevelAction from '../../actions/LevelPageAction'
+import * as PageLevelAction from '../../actions/LevelPageAction';
 import {bindActionCreators} from 'redux';
 
 export class LevelPage extends React.Component {
@@ -17,15 +17,15 @@ export class LevelPage extends React.Component {
     this.updateAnswer = this.updateAnswer.bind(this);
   }
 
-  updateAnswer(event, answer){
-
-  }
-
   componentWillReceiveProps(nextProps){
     this.state = {
       questions: Object.assign([], nextProps.questions)
     };
       this.currentQuestion = this.state.questions[0];
+  }
+
+  updateAnswer(event, answer){
+
   }
 
   render(){
@@ -47,6 +47,10 @@ export class LevelPage extends React.Component {
   }
 
 }
+
+LevelPage.propTypes = {
+  questions: PropTypes.array
+};
 
 function mapStateToProps(state) {
   return {

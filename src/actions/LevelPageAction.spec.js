@@ -1,11 +1,9 @@
-import React from 'react';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from '../reducers';
 import initialState from '../reducers/initialState';
 import thunk from 'redux-thunk';
 import * as UtilStub from "../api/StubApi/UtilStubApi";
-import {ServerApiStub} from "../api/StubApi/ServerApiStub";
-import {serverQuestionStub} from "../api/StubApi/ServerApiStub";
+import {ServerApiStub,serverQuestionStub} from "../api/StubApi/ServerApiStub";
 import * as PageLevelAction from './LevelPageAction';
 
 
@@ -42,7 +40,7 @@ describe("LevelPageActionShould", () => {
 
     let isOrder = isOrderQuestions(state.questions);
 
-    expect(isOrder).not.toBeTruthy()
+    expect(isOrder).not.toBeTruthy();
 
   });
 });
