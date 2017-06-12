@@ -1,0 +1,57 @@
+h4 {
+  padding-bottom: 20px;
+}
+
+#correct-answer{
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+li{
+  cursor: pointer;
+  background-color: #ededed;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 20px;
+  width: 35%;
+  color:  #575756;
+  font-weight: bold;
+}
+
+.arrow-right, .arrow-right-disabled{
+  margin-top: 10%;
+}
+
+.success{
+  background-color: #6bf3ba;
+}
+
+.fail{
+  background-color: #FF665f;
+}
+
+/*iPad*/
+@media only screen and (max-width: 991px){
+  li{
+    width: 50%;
+  }
+}
+
+/* Phablets */
+@media only screen and (max-width: 767px){
+
+}
+
+/* Phones */
+@media only screen and (max-width: 480px){
+
+}
+
+/* iPhone 5 */
+@media only screen and (max-width: 380px) {
+  li {
+    width: 80%;
+  }
+}

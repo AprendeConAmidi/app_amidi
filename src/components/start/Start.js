@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import "./start-styles.css";
 import * as paths from '../../routePaths';
+import "./start-styles.css";
 
 const Start = () => {
   return (

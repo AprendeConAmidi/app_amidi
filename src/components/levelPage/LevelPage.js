@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as PageLevelAction from '../../actions/LevelPageAction';
 import {bindActionCreators} from 'redux';
+import * as PageLevelAction from '../../actions/LevelPageAction';
+import "./levelPage-styles.css"
 
 export class LevelPage extends React.Component {
 
