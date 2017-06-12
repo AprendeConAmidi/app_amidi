@@ -11,6 +11,7 @@ import configureStore from './store/configureStore';
 
 //require('./favicon.ico');
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import "./styles.css";
 import { syncHistoryWithStore } from  'react-router-redux';
 
 
