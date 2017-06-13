@@ -55,3 +55,65 @@ li{
     width: 80%;
   }
 }
+
+
+/* Modal
+ ---------------------- */
+
+:root{
+  --gray: #333;
+  --gray-light: #aaa;
+  --gray-lighter: #eee;
+  --space: 10px;
+  --blue: #428bca;
+  --blue-dark: #405e9b;
+}
+
+.btn-class{
+  background: var(--blue);
+  border: var(--blue-dark) solid 1px;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  padding: 8px 8px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 98%;
+  position: relative;
+
+}
+
+.modal-class{
+   content: "";
+   position: fixed;
+   z-index: 10;
+   top: 0; left: 0; right: 0; bottom: 0;
+
+   display: block;
+}
+
+/* Modal Dialog
+ ---------------------- */
+.modal-dialog-class{
+   background: #fefefe;
+   border: var(--gray) solid 1px;
+   border-radius: 5px;
+   position: fixed;
+   z-index: 11;
+
+   top: 10%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-10%);
+}
+
+.modal-body-class{
+  padding: var(--space)20%;
+}
+
+.modal-footer-class{
+  border-top: var(--gray-lighter) solid 1px;
+  text-align: right;
+}
