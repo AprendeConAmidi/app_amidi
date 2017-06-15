@@ -4,7 +4,7 @@ import * as UtilStub from '../../api/StubApi/UtilStubApi';
 import {LevelPage} from "./LevelPage";
 
 
-describe("<LevelPage/>", () =>{
+describe("<PageSelector/>", () =>{
   let questionsStub;
   let wrapper;
 

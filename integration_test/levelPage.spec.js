@@ -10,8 +10,8 @@ import * as LevelPageAction from '../src/actions/LevelPageAction';
 import LevelPage from "../src/components/levelPage/LevelPage";
 
 
-describe("<LevelPage test integration", () => {
-  it('connect store test integration with questions for category in PageLevelReducer',async () =>{
+describe("<PageSelector test integration", () => {
+  it('connect store test integration with questions for category in QuestionReducer',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
     const action = LevelPageAction.loadQuestionsForLevelPage("Pastoreo y Cereal 2");
     await store.dispatch(action);
@@ -21,7 +21,7 @@ describe("<LevelPage test integration", () => {
     expect(actual).not.toBeUndefined();
   });
 
-  it('connect questions in LevelPage component through of the store',async () =>{
+  it('connect questions in PageSelector component through of the store',async () =>{
     let questionsStub = {
       questions: UtilStub.getQuestionsFor("Pastoreo y Cereal 2")
     };

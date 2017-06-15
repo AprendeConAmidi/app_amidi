@@ -1,2 +1,4 @@
 11-06-2017 p_media: arreglar el contenido o las preguntas.Pero de momento esta fija 10 preguntas por nivel.¿Que pasa si hay menos de 10 preguntas;jonay
 12-06-2017 p_media: volver a poner constantes para los colores;jonay
+15-06-2017 p_media: bug con el fondo rojo y la responsividad.Con la pantalla minimizada al hacer scroll se ve azul.; jonay
+15-06-2017 p_ALTA: el modal se ve radicalmente distinto microsoft eagle; jonay

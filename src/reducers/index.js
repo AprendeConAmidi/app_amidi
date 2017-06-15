@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import {routerReducer} from 'react-router-redux';
 import FormReducer from './FormReducer';
-import PageLevelReducer from './PageLevelReducer';
+import QuestionReducer from './QuestionReducer';
 
 const rootReducer = combineReducers({
-  questions: PageLevelReducer,
+  questions: QuestionReducer,
    emails: FormReducer,
   routing: routerReducer
 });
