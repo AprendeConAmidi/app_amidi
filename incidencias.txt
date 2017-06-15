@@ -2,3 +2,4 @@
 12-06-2017 p_media: volver a poner constantes para los colores;jonay
 15-06-2017 p_media: bug con el fondo rojo y la responsividad.Con la pantalla minimizada al hacer scroll se ve azul.; jonay
 15-06-2017 p_ALTA: el modal se ve radicalmente distinto microsoft eagle; jonay
+15-06-2017 p_ALTA: en LevelPage meter currentQuestion en el state; jonay
