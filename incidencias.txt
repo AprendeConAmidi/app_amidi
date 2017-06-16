@@ -3,3 +3,4 @@
 15-06-2017 p_media: bug con el fondo rojo y la responsividad.Con la pantalla minimizada al hacer scroll se ve azul.; jonay
 15-06-2017 p_ALTA: el modal se ve radicalmente distinto microsoft eagle; jonay
 15-06-2017 p_ALTA: en LevelPage meter currentQuestion en el state; jonay
+16-06-2017 p_media: eliminar duplicación de codigo en getCategorias y getLevels in PageSelector; jonay

@@ -10,19 +10,72 @@ export class PageSelector extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      questions : this.props.questions,
-      categories : getCategories(this.props.questions)
+      questions: this.props.questions,
+      categories: this.getCategories(this.props.questions),
+      levels: this.getLevels(this.props.questions)
     };
+
+    this.mountItems  = this.mountItems.bind(this);
+    this.isCategoryMountable = this.isCategoryMountable.bind(this);
   }
 
+  getCategories(questions){
+  let categories  = [];
+  questions.forEach((question) =>{
+    if(categories.indexOf(question.category) === -1) {
+      categories.push({
+        name: question.category,
+        level: question.level
+      });
+    }
+  });
+  return categories;
+}
+
+
+  getLevels(questions) {
+  let levels  = [];
+  questions.forEach((question) =>{
+    if(levels.indexOf(question.level) === -1) {
+      levels.push(question.level);
+    }
+  });
+  return levels;
+}
+
+
+
+  isCategoryMountable(level,mountsItem, newCategory){
+    if(newCategory.level === level){
+      let categoryFilterMounts = mountsItem.filter((categoryMount) => categoryMount.name === newCategory.name);
+      return categoryFilterMounts.length === 0;
+    }else{
+      return false;
+    }
+  }
+
+  mountItems(){
+    let mountsItem = [];
+
+   return this.state.levels.map((level) =>
+      <div key={level.toString()} name={level}>{
+        this.state.categories.map((category) => {
+          if (this.isCategoryMountable(level, mountsItem, category)) {
+            mountsItem.push(category);
+            return <div key={category.name} id={category.name}>{category.name}</div>;
+          }
+        })
+      }</div>
+    );
+
+
+  }
 
 
   render(){
     return (
-      <div>
-        <div id="itemsLevelPage">
-          {this.state.categories.map((category) => <div key={category}>{category}</div>)}
-        </div>
+      <div id="levelsMount">
+        {this.mountItems()}
       </div>
     );
   }
@@ -45,14 +98,3 @@ function mapDispatchToProps(dispatch) {
   };
 }
 export default connect(mapStateToProps,mapDispatchToProps)(PageSelector);
-
-
-function getCategories(questions){
-  let categories  = [];
-  questions.forEach((question) =>{
-    if(categories.indexOf(question.category) === -1) {
-      categories.push(question.category);
-    }
-  });
-  return categories;
-}
