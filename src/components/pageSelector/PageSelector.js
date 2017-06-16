@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as PageSelectorAction from '../../actions/PageSelectorAction';
-import "./levelPage-styles.css"
 
 
 
@@ -22,7 +21,7 @@ export class PageSelector extends React.Component {
     return (
       <div>
         <div id="itemsLevelPage">
-          {this.state.categories.map((category) => <div>{category}</div>)}
+          {this.state.categories.map((category) => <div key={category}>{category}</div>)}
         </div>
       </div>
     );
@@ -52,7 +51,7 @@ function getCategories(questions){
   let categories  = [];
   questions.forEach((question) =>{
     if(categories.indexOf(question.category) === -1) {
-      categories.push(question.category)
+      categories.push(question.category);
     }
   });
   return categories;
