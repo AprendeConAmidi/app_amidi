@@ -1,12 +1,12 @@
-11-06-2017 p_media: arreglar el contenido o las preguntas.Pero de momento esta fija 10 preguntas por nivel.¿Que pasa si hay menos de 10 preguntas;jonay
+11-06-2017 p_media: arreglar el contenido o las preguntas.Pero de momento esta fija 10 preguntas por nivel.Â¿Que pasa si hay menos de 10 preguntas;jonay
 12-06-2017 p_media: volver a poner constantes para los colores;jonay
 15-06-2017 p_media: bug con el fondo rojo y la responsividad.Con la pantalla minimizada al hacer scroll se ve azul.; jonay
 15-06-2017 p_ALTA: el modal se ve radicalmente distinto microsoft eagle; jonay
 15-06-2017 p_ALTA: en LevelPage meter currentQuestion en el state; jonay
-16-06-2017 p_media: eliminar duplicación de codigo en getCategorias y getLevels in PageSelector; jonay
+16-06-2017 p_media: eliminar duplicaciÃ³n de codigo en getCategorias y getLevels in PageSelector; jonay
 16-06-2017 p_ALTA: crear tabla categorias en la base de datos; jonay
-16-06-2017 p_media: crear una relacion m:n en la base de datos con preguntas y tablas para que una pregunta pueda pertenecer a más de una categoria; jonay
+16-06-2017 p_media: crear una relacion m:n en la base de datos con preguntas y tablas para que una pregunta pueda pertenecer a mÃ¡s de una categoria; jonay
 16-06-2017 p_ALTA: adaptar algunos test de PageSelector a componentwillmount; jonay
-16-06-2017 p_baja: añadir el progreso al selector de niveles; jonay
+16-06-2017 p_baja: aÃ±adir el progreso al selector de niveles; jonay
 16-06-2017 p_ALTA: arreglar que el estado de las preguntas sea el mismo para todos; jonay
 16-06-2017 p_MUY_ALTA: crear trello; jonay
