@@ -68,9 +68,13 @@ export class PageSelector extends React.Component {
         this.state.categories.map((category) => {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);
-            return <div key={category.name} id={category.name}>{category.name}</div>;
-          }
-        })
+            return (
+              <div key={category.name} id={category.name} className="container">
+                <img src="../../assets/categories/pastoreo.png" alt=""/>
+                <h4>{category.name}</h4>
+              </div>
+            );
+          }})
       }</div>
     );
   }

@@ -7,3 +7,6 @@
 16-06-2017 p_ALTA: crear tabla categorias en la base de datos; jonay
 16-06-2017 p_media: crear una relacion m:n en la base de datos con preguntas y tablas para que una pregunta pueda pertenecer a más de una categoria; jonay
 16-06-2017 p_ALTA: adaptar algunos test de PageSelector a componentwillmount; jonay
+16-06-2017 p_baja: añadir el progreso al selector de niveles; jonay
+16-06-2017 p_ALTA: arreglar que el estado de las preguntas sea el mismo para todos; jonay
+
