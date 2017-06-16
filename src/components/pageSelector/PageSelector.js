@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as PageSelectorAction from '../../actions/PageSelectorAction';
 
 
-
 export class PageSelector extends React.Component {
 
   constructor(props, context) {
@@ -15,81 +14,73 @@ export class PageSelector extends React.Component {
       levels: this.getLevels(this.props.questions)
     };
 
-    this.mountItems  = this.mountItems.bind(this);
+    this.mountLevels = this.mountLevels.bind(this);
     this.isCategoryMountable = this.isCategoryMountable.bind(this);
   }
 
-  getCategories(questions){
-  let categories  = [];
-  questions.forEach((question) =>{
-    if(categories.indexOf(question.category) === -1) {
-      categories.push({
-        name: question.category,
-        level: question.level
-      });
-    }
-  });
-  return categories;
-}
+  getCategories(questions) {
+    let categories = [];
+    questions.forEach((question) => {
+      if (categories.indexOf(question.category) === -1) {
+        categories.push({
+          name: question.category,
+          level: question.level
+        });
+      }
+    });
+    return categories;
+  }
 
 
   getLevels(questions) {
-  let levels  = [];
-  questions.forEach((question) =>{
-    if(levels.indexOf(question.level) === -1) {
-      levels.push(question.level);
-    }
-  });
-  return levels;
-}
+    let levels = [];
+    questions.forEach((question) => {
+      if (levels.indexOf(question.level) === -1) {
+        levels.push(question.level);
+      }
+    });
+    return levels;
+  }
 
 
-
-  isCategoryMountable(level,mountsItem, newCategory){
-    if(newCategory.level === level){
+  isCategoryMountable(level, mountsItem, newCategory) {
+    if (newCategory.level === level) {
       let categoryFilterMounts = mountsItem.filter((categoryMount) => categoryMount.name === newCategory.name);
       return categoryFilterMounts.length === 0;
-    }else{
+    } else {
       return false;
     }
   }
 
-  mountItems(){
-    let mountsItem = [];
+  mountLevels() {
+    let countCategories = [];
 
-   return this.state.levels.map((level) =>
+    return this.state.levels.map((level) =>
       <div key={level.toString()} name={level}>{
         this.state.categories.map((category) => {
-          if (this.isCategoryMountable(level, mountsItem, category)) {
-            mountsItem.push(category);
+          if (this.isCategoryMountable(level, countCategories, category)) {
+            countCategories.push(category);
             return <div key={category.name} id={category.name}>{category.name}</div>;
           }
         })
       }</div>
     );
-
-
   }
 
-
-  render(){
+  render() {
     return (
       <div id="levelsMount">
-        {this.mountItems()}
+        {this.mountLevels()}
       </div>
     );
   }
 
 }
 
-PageSelector.propTypes = {
-  questions: PropTypes.array
-};
+PageSelector.propTypes = {questions: PropTypes.array};
 
 function mapStateToProps(state) {
-  return {
-    questions: state.questions
-  };
+  return {questions: state.questions};
 }
 
 function mapDispatchToProps(dispatch) {
@@ -97,4 +88,4 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(PageSelectorAction, dispatch)
   };
 }
-export default connect(mapStateToProps,mapDispatchToProps)(PageSelector);
+export default connect(mapStateToProps, mapDispatchToProps)(PageSelector);
