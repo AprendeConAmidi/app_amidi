@@ -13,9 +13,17 @@ export class PageSelector extends React.Component {
       categories: this.getCategories(this.props.questions),
       levels: this.getLevels(this.props.questions)
     };
-
     this.mountLevels = this.mountLevels.bind(this);
     this.isCategoryMountable = this.isCategoryMountable.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps){
+    let newState = {
+      questions: nextProps.questions,
+      categories: this.getCategories(nextProps.questions),
+      levels: this.getLevels(nextProps.questions)
+    };
+    this.setState(Object.assign({},this.state, newState));
   }
 
   getCategories(questions) {
@@ -56,7 +64,7 @@ export class PageSelector extends React.Component {
     let countCategories = [];
 
     return this.state.levels.map((level) =>
-      <div key={level.toString()} name={level}>{
+      <div key={level.toString()} name={level} className="row text-center center-block">{
         this.state.categories.map((category) => {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);

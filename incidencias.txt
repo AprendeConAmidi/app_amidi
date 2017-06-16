@@ -4,3 +4,6 @@
 15-06-2017 p_ALTA: el modal se ve radicalmente distinto microsoft eagle; jonay
 15-06-2017 p_ALTA: en LevelPage meter currentQuestion en el state; jonay
 16-06-2017 p_media: eliminar duplicación de codigo en getCategorias y getLevels in PageSelector; jonay
+16-06-2017 p_ALTA: crear tabla categorias en la base de datos; jonay
+16-06-2017 p_media: crear una relacion m:n en la base de datos con preguntas y tablas para que una pregunta pueda pertenecer a más de una categoria; jonay
+16-06-2017 p_ALTA: adaptar algunos test de PageSelector a componentwillmount; jonay
