@@ -10,3 +10,4 @@
 16-06-2017 p_baja: añadir el progreso al selector de niveles; jonay
 16-06-2017 p_ALTA: arreglar que el estado de las preguntas sea el mismo para todos; jonay
 16-06-2017 p_MUY_ALTA: crear trello; jonay
+16-06-2017 p_ALTA: meter meta; jonay
