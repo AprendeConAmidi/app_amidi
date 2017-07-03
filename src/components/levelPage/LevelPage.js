@@ -68,12 +68,16 @@ LevelPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  const level = ownProps.params.level;
-  const managerQuiz = new ManagerQuiz();
+  if(!!ownProps.params) {
+    const level = ownProps.params.level;
+    const managerQuiz = new ManagerQuiz();
 
-  return {
-    questionsLevel: managerQuiz.filterForLevel(level,state.questions)
-  };
+    return {
+      questionsLevel: managerQuiz.filterForLevel(level, state.questions)
+    };
+  }else {
+    return {};
+  }
 }
 
 function mapDispatchToProps(dispatch) {

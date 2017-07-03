@@ -4,11 +4,11 @@ import * as UtilStub from '../../api/StubApi/UtilStubApi';
 import {LevelPage} from "./LevelPage";
 
 
-describe("<PageSelector/>", () =>{
+describe("<LevelPage/>", () =>{
   it("should render question", function () {
     let questionsStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
     let wrapper = shallow(<LevelPage/>);
-    wrapper.setProps({ questions: [questionsStub]});
+    wrapper.setProps({ questionsLevel: [questionsStub]});
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
 
@@ -26,6 +26,4 @@ describe("<PageSelector/>", () =>{
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);
   });
-
-
 });
