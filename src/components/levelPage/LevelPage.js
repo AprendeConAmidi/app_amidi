@@ -34,9 +34,11 @@ export class LevelPage extends React.Component {
   }
 
   render(){
+
     if(this.currentQuestion) {
       return (
         <div className="text-center">
+          {this.props.level}
           <h4>{this.currentQuestion.question}</h4>
           <ul>
             {this.currentQuestion.answers.map((answer) =>
@@ -67,9 +69,12 @@ LevelPage.propTypes = {
   questions: PropTypes.array
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  let level = ownProps.params.level;
+
   return {
-    questions: state.questions
+    questions: state.questions,
+    level: level
   };
 }
 
