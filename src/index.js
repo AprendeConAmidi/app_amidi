@@ -4,7 +4,6 @@ import {browserHistory} from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 import {loadEmails} from './actions/FormAction';
-import {loadQuestionsForLevelPage} from './actions/LevelPageAction';
 import {loadAllQuestions} from './actions/PageSelectorAction';
 
 import configureStore from './store/configureStore';
@@ -19,7 +18,6 @@ import { syncHistoryWithStore } from  'react-router-redux';
 const store = configureStore();
 store.dispatch(loadEmails());
 store.dispatch(loadAllQuestions());
-//store.dispatch(loadQuestionsForLevelPage("Pastoreo y Cereal 2"));
 
 
 //Create an enhanced history that syncs navigation events with the store

@@ -5,30 +5,22 @@ import {LevelPage} from "./LevelPage";
 
 
 describe("<PageSelector/>", () =>{
-  let questionsStub;
-  let wrapper;
-
-  beforeEach(function () {
-    questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2");
-
-    wrapper = shallow(<LevelPage/>);
-    wrapper.setProps({ questions: questionsStub });
-  });
-
   it("should render question", function () {
-
+    let questionsStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
+    let wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questions: [questionsStub]});
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
 
-    expect(questionStatement.text()).toBe(questionsStub[0].question);
-    for(let index in questionsStub[0].answers){
-      expect(groupAnswer.at(index).text()).toBe(questionsStub[0].answers[index]);
+    expect(questionStatement.text()).toBe(questionsStub.question);
+    for(let index in questionsStub.answers){
+      expect(groupAnswer.at(index).text()).toBe(questionsStub.answers[index]);
     }
     expect(questionStatement.length).toBe(1);
-    expect(groupAnswer.length).toBe(questionsStub[0].answers.length);
+    expect(groupAnswer.length).toBe(questionsStub.answers.length);
   });
 
-  it("when cuurentQuestion is empty render <div></div>", function () {
+  it("when currentQuestion is empty render <div></div>", function () {
     let wrapper = shallow(<LevelPage/>);
 
     expect(wrapper.length).toBe(1);
