@@ -8,13 +8,12 @@ export class LevelPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    this.managerQuiz = new ManagerQuiz();
 
     this.state = {
-      questions: []
+      questionsLevel: []
     };
-    if(this.state.questions.length >0) {
-      this.currentQuestion = this.state.questions[0];
+    if(this.state.questionsLevel.length >0) {
+      this.currentQuestion = this.state.questionsLevel[0];
     }
 
     this.updateAnswer = this.updateAnswer.bind(this);
@@ -23,10 +22,9 @@ export class LevelPage extends React.Component {
 
   componentWillReceiveProps(nextProps){
     this.state = {
-      questions: Object.assign([],
-        this.managerQuiz.filterForLevel("Pastoreo y Cereal 2", nextProps.questions))
+      questionsLevel: Object.assign([], nextProps.questionsLevel)
     };
-      this.currentQuestion = this.state.questions[0];
+      this.currentQuestion = this.state.questionsLevel[0];
   }
 
   updateAnswer(event, answer){
@@ -66,15 +64,15 @@ export class LevelPage extends React.Component {
 }
 
 LevelPage.propTypes = {
-  questions: PropTypes.array
+  questionsLevel: PropTypes.array
 };
 
 function mapStateToProps(state, ownProps) {
-  let level = ownProps.params.level;
+  const level = ownProps.params.level;
+  const managerQuiz = new ManagerQuiz();
 
   return {
-    questions: state.questions,
-    level: level
+    questionsLevel: managerQuiz.filterForLevel(level,state.questions)
   };
 }
 
