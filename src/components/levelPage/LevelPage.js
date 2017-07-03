@@ -1,13 +1,15 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as PageLevelAction from '../../actions/LevelPageAction';
+import ManagerQuiz from './ManagerQuiz';
 import "./levelPage-styles.css"
 
 export class LevelPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+    this.managerQuiz = new ManagerQuiz();
+
     this.state = {
       questions: []
     };
@@ -18,45 +20,11 @@ export class LevelPage extends React.Component {
     this.updateAnswer = this.updateAnswer.bind(this);
   }
 
-  filterForLevel(category, allQuestions){
-    const NUM_MAX_QUESTION = 10;
-    let filterQuestions;
-    filterQuestions = allQuestions.filter((question) => question.category === category);
-    filterQuestions = this.sortRandomArray(filterQuestions).slice(0,NUM_MAX_QUESTION);
-
-    return filterQuestions;
-  }
-
-  sortRandomArray(questions){
-  let numberLoop = 50;
-  for(let i =0; i < numberLoop; i++){
-    questions = this.sortRandom(questions);
-  }
-  return questions;
-}
-
-
-  sortRandom(questions){
-  let max = questions.length - 1;
-  let min = 0;
-
-  let firstPosition = parseInt(Math.floor(Math.random() * (max - min) + min));
-  let secondPosition = parseInt(Math.floor(Math.random() * (max - min) + min));
-
-  let tempQuestion = questions[firstPosition];
-  questions[firstPosition] = questions[secondPosition];
-  questions[secondPosition] = tempQuestion;
-
-  return questions;
-}
-
-
-
 
   componentWillReceiveProps(nextProps){
     this.state = {
       questions: Object.assign([],
-        this.filterForLevel("Pastoreo y Cereal 2", nextProps.questions))
+        this.managerQuiz.filterForLevel("Pastoreo y Cereal 2", nextProps.questions))
     };
       this.currentQuestion = this.state.questions[0];
   }
@@ -106,9 +74,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+  /*
   return {
     actions: bindActionCreators(PageLevelAction, dispatch)
   };
+  */
 }
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(LevelPage);
