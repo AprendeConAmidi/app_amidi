@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
 import "./levelPage-styles.css"
 
+const managerQuiz = new ManagerQuiz();
 export class LevelPage extends React.Component {
 
   constructor(props, context) {
@@ -15,7 +16,6 @@ export class LevelPage extends React.Component {
     if(this.state.questionsLevel.length >0) {
       this.currentQuestion = this.state.questionsLevel[0];
     }
-
     this.updateAnswer = this.updateAnswer.bind(this);
   }
 
@@ -70,7 +70,6 @@ LevelPage.propTypes = {
 function mapStateToProps(state, ownProps) {
   if(!!ownProps.params) {
     const level = ownProps.params.level;
-    const managerQuiz = new ManagerQuiz();
 
     return {
       questionsLevel: managerQuiz.filterForLevel(level, state.questions)
