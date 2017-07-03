@@ -45,7 +45,7 @@ export class LevelPage extends React.Component {
               </li>
             )}
           </ul>
-          <div className="modal-class container-fluid" id="modal-one" aria-hidden="true">
+          <div className="modal-class container-fluid hidden" id="modal-one" aria-hidden="true">
             <div className="modal-dialog-class ">
               <div className="modal-body-class">
                 <p>One modal example here! :D</p>

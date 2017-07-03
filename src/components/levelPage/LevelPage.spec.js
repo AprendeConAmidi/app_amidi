@@ -5,12 +5,13 @@ import {LevelPage} from "./LevelPage";
 
 
 describe("<LevelPage/>", () =>{
-  it("should render question", function () {
+  it("level start", function () {
     let questionsStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
     let wrapper = shallow(<LevelPage/>);
     wrapper.setProps({ questionsLevel: [questionsStub]});
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
+    let modal = wrapper.find(".modal-class");
 
     expect(questionStatement.text()).toBe(questionsStub.question);
     for(let index in questionsStub.answers){
@@ -18,6 +19,7 @@ describe("<LevelPage/>", () =>{
     }
     expect(questionStatement.length).toBe(1);
     expect(groupAnswer.length).toBe(questionsStub.answers.length);
+    expect(modal.hasClass("hidden")).toBe(true)
   });
 
   it("when currentQuestion is empty render <div></div>", function () {
@@ -26,4 +28,12 @@ describe("<LevelPage/>", () =>{
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);
   });
+
+
+
+
+
+
+
+
 });
