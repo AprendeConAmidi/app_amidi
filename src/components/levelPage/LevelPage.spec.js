@@ -78,6 +78,26 @@ describe("<LevelPage/>", () =>{
     expect(wrapper.state().isSuccess).toBe(false);
   });
 
+  it("questionsLevel finish return start", function () {
+    let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
+    let wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questionsLevel: questionsStub});
+
+    let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
+    answerFail1.simulate('click');
+    simulateClickModal(wrapper);
+    let answerFail2 =  getAnswerFailDom(wrapper, questionsStub[1]);
+    answerFail2.simulate('click');
+    simulateClickModal(wrapper);
+
+    let questionStatement = wrapper.find("h4");
+    expect(questionStatement.text()).toBe(questionsStub[0].question);
+  });
+
+
+
+
+
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
     let wrapper = shallow(<LevelPage/>);
@@ -93,6 +113,9 @@ describe("<LevelPage/>", () =>{
     expect(modal.hasClass("hidden")).toBe(true);
     expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length-1);
   });
+
+
+
 });
 
 function simulateClickModal(wrapper) {

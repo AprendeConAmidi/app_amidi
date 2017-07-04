@@ -39,6 +39,8 @@ export class LevelPage extends React.Component {
   updateLevel(){
     let indexCurrentQuestion =
       this.state.questionsLevel.indexOf(this.state.currentQuestion);
+    let indexNextQuestion = indexCurrentQuestion+1 < this.state.questionsLevel.length
+     ? indexCurrentQuestion+1 : 0;
 
     let newQuestionLevel = Object.assign([],this.state.questionsLevel);
     if(this.state.isSuccess){
@@ -47,7 +49,7 @@ export class LevelPage extends React.Component {
 
     let newState = {
       questionsLevel: newQuestionLevel,
-      currentQuestion: this.state.questionsLevel[indexCurrentQuestion+1],
+      currentQuestion: this.state.questionsLevel[indexNextQuestion],
       isShowModal: false,
       isSuccess: false
     };
