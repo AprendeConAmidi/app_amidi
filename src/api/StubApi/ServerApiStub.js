@@ -182,7 +182,7 @@ export const serverQuestionStub = {
       "_id": "59077026f303050011614b2e",
       "explanation": null,
       "type": "text",
-      "category": "Pastoreo y Cereal 2",
+      "category": "Pastoreo y Cereal 1",
       "level": "2",
       "correctAnswer": "Tenerife",
       "question": "¿Cuál de estas islas tiene un mayor número de galerías?",
