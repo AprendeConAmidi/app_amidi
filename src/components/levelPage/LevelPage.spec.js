@@ -5,10 +5,16 @@ import {LevelPage} from "./LevelPage";
 
 
 describe("<LevelPage/>", () =>{
-  it("level start", function () {
-    let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
+  let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
+
+  function mount(){
     let wrapper = shallow(<LevelPage/>);
     wrapper.setProps({ questionsLevel: [questionStub]});
+    return wrapper;
+  }
+
+  it("level start", function () {
+    let wrapper = mount();
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
     let modal = wrapper.find("#modal");
@@ -30,9 +36,7 @@ describe("<LevelPage/>", () =>{
   });
 
   it("Player answer fail", function () {
-    let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
-    let wrapper = shallow(<LevelPage/>);
-    wrapper.setProps({ questionsLevel: [questionStub]});
+    let wrapper = mount();
     let answerFail =  getAnswerFailDom(wrapper, questionStub);
 
     answerFail.simulate('click');
@@ -44,9 +48,7 @@ describe("<LevelPage/>", () =>{
   });
 
   it("Player answer success", function () {
-    let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
-    let wrapper = shallow(<LevelPage/>);
-    wrapper.setProps({ questionsLevel: [questionStub]});
+    let wrapper = mount();
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
 
     answerSuccess.simulate('click');
