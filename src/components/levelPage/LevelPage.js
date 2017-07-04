@@ -12,27 +12,42 @@ export class LevelPage extends React.Component {
 
     this.state = {
       questionsLevel: [],
+      currentQuestion: undefined,
       isShowModal: false,
       isSuccess: false,
     };
-    if(this.state.questionsLevel.length >0) {
-      this.currentQuestion = this.state.questionsLevel[0];
-    }
+
     this.updateAnswer = this.updateAnswer.bind(this);
+    this.updateLevel = this.updateLevel.bind(this);
   }
 
-
   componentWillReceiveProps(nextProps){
-    this.state = {
-      questionsLevel: Object.assign([], nextProps.questionsLevel)
+    let currentQuestion = this.state.currentQuestion;
+
+    let newState = {
+      questionsLevel: Object.assign([], nextProps.questionsLevel),
+      currentQuestion: !!currentQuestion ? currentQuestion: nextProps.questionsLevel[0],
     };
-      this.currentQuestion = this.state.questionsLevel[0];
+    this.setState(Object.assign({}, this.state, newState));
   }
 
   updateAnswer(answer){
-    let isSuccess = (answer === this.currentQuestion.correctAnswer);
+    let isSuccess = (answer === this.state.currentQuestion.correctAnswer);
     this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
+
+  updateLevel(){
+    let indexNextQuestion =
+      this.state.questionsLevel.indexOf(this.state.currentQuestion)+1;
+
+    let newState = {
+     isShowModal: false,
+     currentQuestion: this.state.questionsLevel[indexNextQuestion]
+    };
+
+    this.setState(Object.assign({}, this.state, newState));
+  }
+
 
   getContentModal(){
     if(this.state.isSuccess){
@@ -41,18 +56,18 @@ export class LevelPage extends React.Component {
       return (
         <div>
           <h2>Te equivocaste</h2>
-          <h3><strong>{this.currentQuestion.correctAnswer}</strong></h3>
+          <h3><strong>{this.state.currentQuestion.correctAnswer}</strong></h3>
         </div>);
     }
   }
 
   render(){
-    if(this.currentQuestion) {
+    if(this.state.currentQuestion) {
       return (
         <div className="text-center">
-          <h4>{this.currentQuestion.question}</h4>
+          <h4>{this.state.currentQuestion.question}</h4>
           <ul>
-            {this.currentQuestion.answers.map((answer) =>
+            {this.state.currentQuestion.answers.map((answer) =>
               <li key={answer} className="answer" onClick={() => (this.updateAnswer(answer))}>
                 {answer}
               </li>
@@ -65,7 +80,12 @@ export class LevelPage extends React.Component {
               </div>
               <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
               <div className="modal-footer-class">
-                <button className={this.state.isSuccess ? "btn-class center-block btn-success" : "btn-class center-block btn-fail"}>Continuar</button>
+                <button
+                  className={this.state.isSuccess ? "btn-class center-block btn-success" : "btn-class center-block btn-fail"}
+                  onClick={this.updateLevel}
+                >
+                  Continuar
+                </button>
               </div>
             </div>
           </div>

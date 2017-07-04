@@ -12,6 +12,6 @@ export function getQuestionFor(category){
   return serverQuestionStub.questions.filter((question) => question.category === category)[0];
 }
 
-export function getQuestionsFor(category){
-  return serverQuestionStub.questions.filter((question) => question.category === category);
+export function getQuestionsFor(category, n = 10){
+  return serverQuestionStub.questions.filter((question) => question.category === category).slice(0,n);
 }

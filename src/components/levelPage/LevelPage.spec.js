@@ -59,7 +59,29 @@ describe("<LevelPage/>", () =>{
     expect(modal.find("h3").length).toBe(0);
   });
 
+
+  it("Player answer fail and continue", function () {
+    let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
+    let wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questionsLevel: questionsStub});
+    let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
+
+    answerFail.simulate('click');
+    simulateClickModal(wrapper);
+
+    let modal = wrapper.find("#modal");
+    let questionStatement = wrapper.find("h4");
+    expect(questionStatement.text()).toBe(questionsStub[1].question);
+    expect(modal.hasClass("hidden")).toBe(true);
+    expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length);
+  });
 });
+
+function simulateClickModal(wrapper) {
+  let modal = wrapper.find("#modal");
+  let buttonNext = modal.find("button");
+  buttonNext.simulate('click');
+}
 
 function getAnswerFailDom(wrapper, questionStub){
   let answerFail = returnAnswerFail(questionStub);
