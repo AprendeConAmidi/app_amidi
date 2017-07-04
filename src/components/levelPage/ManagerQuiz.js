@@ -32,6 +32,14 @@ function ManagerQuiz() {
     return questions;
   }
 
+   this.updateQuestionForLevel = function(indexCurrentQuestion,stateLevel){
+    let newQuestionLevel = Object.assign([],stateLevel.questionsLevel);
+    if(stateLevel.isSuccess){
+      newQuestionLevel.splice(indexCurrentQuestion,1)
+    }
+    return newQuestionLevel;
+  }
+
 }
 
 export default ManagerQuiz;
