@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import * as UtilStub from '../../api/StubApi/UtilStubApi';
+import  * as routesPath from "../../routePaths";
 import {LevelPage} from "./LevelPage";
 
 
@@ -94,10 +95,6 @@ describe("<LevelPage/>", () =>{
     expect(questionStatement.text()).toBe(questionsStub[0].question);
   });
 
-
-
-
-
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
     let wrapper = shallow(<LevelPage/>);
@@ -114,6 +111,22 @@ describe("<LevelPage/>", () =>{
     expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length-1);
   });
 
+  it("Player winner level", function () {
+    let routeMock = null;
+    let propsStub = {
+      router: {
+        push: function (routePath) {
+          routeMock = routePath;}
+      }};
+    let wrapper = shallow(<LevelPage {...propsStub}/>);
+    wrapper.setProps({ questionsLevel: [questionStub]});
+
+    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+    answerSuccess.simulate('click');
+    simulateClickModal(wrapper);
+
+    expect(routeMock).toBe(routesPath.WINNER)
+  });
 
 
 });

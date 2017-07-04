@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
 import "./levelPage-styles.css"
+import  * as routesPath from "../../routePaths";
 
 const managerQuiz = new ManagerQuiz();
 export class LevelPage extends React.Component {
@@ -43,13 +44,17 @@ export class LevelPage extends React.Component {
      ? indexCurrentQuestion+1 : 0;
     let newQuestionLevel = managerQuiz.updateQuestionForLevel(indexCurrentQuestion,this.state);
 
-    let newState = {
-      questionsLevel: newQuestionLevel,
-      currentQuestion: this.state.questionsLevel[indexNextQuestion],
-      isShowModal: false,
-      isSuccess: false
-    };
-    this.setState(Object.assign({}, this.state, newState));
+    if(newQuestionLevel.length === 0){
+      this.props.router.push(routesPath.WINNER)
+    }else {
+      let newState = {
+        questionsLevel: newQuestionLevel,
+        currentQuestion: this.state.questionsLevel[indexNextQuestion],
+        isShowModal: false,
+        isSuccess: false
+      };
+      this.setState(Object.assign({}, this.state, newState));
+    }
   }
 
 
