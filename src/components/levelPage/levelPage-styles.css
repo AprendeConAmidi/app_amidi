@@ -68,27 +68,21 @@ li{
   color: #ff483f;
 }
 
-h3{
- font-weight: bold;
+.btn-fail{
+  background: #ff483f;
 }
 
-
-.btn-class .fail{
-  background: #ffcfcc;
-  border: #ff483f solid 1px;
+.btn-success{
+  background: #38f335;
 }
 
 .btn-class{
-  background: #ff5f69;
-  border: #ff483f solid 1px;
   border-radius: 3px;
   color: #fff;
   display: block;
   font-size: 24px;
   padding: 8px 8px;
-  margin-top: 5px;
-  margin-bottom: 3px;
-  text-decoration: none;
+  margin: 5px;
   text-align: center;
   min-width: 98%;
   position: relative;
@@ -122,6 +116,6 @@ h3{
 }
 
 .modal-footer-class{
-  border-top: var(--gray-lighter) solid 1px;
+  border-top: black solid 1px;
   text-align: right;
 }

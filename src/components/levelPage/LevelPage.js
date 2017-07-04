@@ -41,7 +41,7 @@ export class LevelPage extends React.Component {
       return (
         <div>
           <h2>Te equivocaste</h2>
-          <h3>{this.currentQuestion.correctAnswer}</h3>
+          <h3><strong>{this.currentQuestion.correctAnswer}</strong></h3>
         </div>);
     }
   }
@@ -66,7 +66,7 @@ export class LevelPage extends React.Component {
                 {this.getContentModal()}
               </div>
               <div className="modal-footer-class">
-                <button className="btn-class center-block">Continuar</button>
+                <button className={this.state.isSuccess ? "btn-class center-block btn-success" : "btn-class center-block btn-fail"}>Continuar</button>
               </div>
             </div>
           </div>
