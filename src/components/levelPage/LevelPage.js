@@ -30,7 +30,7 @@ export class LevelPage extends React.Component {
   }
 
   updateAnswer(answer){
-    let isSuccess = (answer === this.currentQuestion);
+    let isSuccess = (answer === this.currentQuestion.correctAnswer);
     this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
 
