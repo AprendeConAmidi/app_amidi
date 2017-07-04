@@ -45,6 +45,7 @@ describe("<LevelPage/>", () =>{
     expect(modal.hasClass("hidden")).toBe(false);
     expect(modal.find("h2").text()).toBe("Te equivocaste");
     expect(modal.find("h3").text()).toBe(questionStub.correctAnswer);
+    expect(wrapper.state().isSuccess).toBe(false);
   });
 
   it("Player answer success", function () {
@@ -57,11 +58,11 @@ describe("<LevelPage/>", () =>{
     expect(modal.hasClass("hidden")).toBe(false);
     expect(modal.find("h2").text()).toBe("Tu respuesta es correcta");
     expect(modal.find("h3").length).toBe(0);
+    expect(wrapper.state().isSuccess).toBe(true);
   });
 
-
   it("Player answer fail and continue", function () {
-    let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
+    let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
     let wrapper = shallow(<LevelPage/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -74,6 +75,23 @@ describe("<LevelPage/>", () =>{
     expect(questionStatement.text()).toBe(questionsStub[1].question);
     expect(modal.hasClass("hidden")).toBe(true);
     expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length);
+    expect(wrapper.state().isSuccess).toBe(false);
+  });
+
+  it("Player answer success and continue", function () {
+    let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
+    let wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questionsLevel: questionsStub});
+    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+
+    answerSuccess.simulate('click');
+    simulateClickModal(wrapper);
+
+    let modal = wrapper.find("#modal");
+    let questionStatement = wrapper.find("h4");
+    expect(questionStatement.text()).toBe(questionsStub[1].question);
+    expect(modal.hasClass("hidden")).toBe(true);
+    expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length-1);
   });
 });
 
