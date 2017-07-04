@@ -46,8 +46,6 @@ export class LevelPage extends React.Component {
     }
   }
 
-
-
   render(){
     if(this.currentQuestion) {
       return (

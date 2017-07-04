@@ -40,14 +40,27 @@ describe("<LevelPage/>", () =>{
     let modal = wrapper.find("#modal");
     expect(modal.hasClass("hidden")).toBe(false);
     expect(modal.find("h2").text()).toBe("Te equivocaste");
-    expect(modal.find("h3").text()).toBe(returnAnswerFail(questionStub));
+    expect(modal.find("h3").text()).toBe(questionStub.correctAnswer);
+  });
+
+  it("Player answer success", function () {
+    let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
+    let wrapper = shallow(<LevelPage/>);
+    wrapper.setProps({ questionsLevel: [questionStub]});
+    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+
+    answerSuccess.simulate('click');
+
+    let modal = wrapper.find("#modal");
+    expect(modal.hasClass("hidden")).toBe(false);
+    expect(modal.find("h2").text()).toBe("Tu respuesta es correcta");
+    expect(modal.find("h3").length).toBe(0);
   });
 
 });
 
 function getAnswerFailDom(wrapper, questionStub){
   let answerFail = returnAnswerFail(questionStub);
-
   let answerReact = findContainsText(wrapper, answerFail);
   return answerReact;
 }
@@ -64,5 +77,5 @@ function findContainsText(wrapper, answer) {
 
 
 function returnAnswerFail(question) {
-  return (question.answers !== question.answers[0]) ? question.answers[0] : question.answers[1];
+  return (question.correctAnswer !== question.answers[0]) ? question.answers[0] : question.answers[1];
 }
