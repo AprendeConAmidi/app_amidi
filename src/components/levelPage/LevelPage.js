@@ -11,7 +11,9 @@ export class LevelPage extends React.Component {
     super(props, context);
 
     this.state = {
-      questionsLevel: []
+      questionsLevel: [],
+      isShowModal: false,
+      isSuccess: false,
     };
     if(this.state.questionsLevel.length >0) {
       this.currentQuestion = this.state.questionsLevel[0];
@@ -27,31 +29,44 @@ export class LevelPage extends React.Component {
       this.currentQuestion = this.state.questionsLevel[0];
   }
 
-  updateAnswer(event, answer){
-
+  updateAnswer(answer){
+    let isSuccess = (answer === this.currentQuestion);
+    this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
 
-  render(){
+  getContentModal(){
+    if(this.state.isSuccess){
+      return (<h2>Tu respuesta es correcta</h2>)
+    }else{
+      return (
+        <div>
+          <h2>Te equivocaste</h2>
+          <h3>{this.currentQuestion.correctAnswer}</h3>
+        </div>);
+    }
+  }
 
+
+
+  render(){
     if(this.currentQuestion) {
       return (
         <div className="text-center">
-          {this.props.level}
           <h4>{this.currentQuestion.question}</h4>
           <ul>
             {this.currentQuestion.answers.map((answer) =>
-              <li key={answer} className="answer" onClick={this.updateAnswer}>
+              <li key={answer} className="answer" onClick={() => (this.updateAnswer(answer))}>
                 {answer}
               </li>
             )}
           </ul>
-          <div className="modal-class container-fluid hidden" id="modal-one" aria-hidden="true">
-            <div className="modal-dialog-class ">
+          <div className={this.state.isShowModal ? "modal-class container-fluid" : "hidden"} id="modal" aria-hidden="true">
+            <div className={this.state.isSuccess ? "modal-dialog-class success" : "modal-dialog-class fail"}>
               <div className="modal-body-class">
-                <p>One modal example here! :D</p>
+                {this.getContentModal()}
               </div>
               <div className="modal-footer-class">
-                <button className="btn-class center-block">Nice!</button>
+                <button className="btn-class center-block">Continuar</button>
               </div>
             </div>
           </div>
@@ -86,6 +101,5 @@ function mapDispatchToProps(dispatch) {
   };
   */
 }
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(LevelPage);

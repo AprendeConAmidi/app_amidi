@@ -2,11 +2,6 @@ h4 {
   padding-bottom: 20px;
 }
 
-#correct-answer{
-  width: 80%;
-  text-align: center;
-  margin: 0 auto;
-}
 
 li{
   cursor: pointer;
@@ -24,13 +19,6 @@ li{
   margin-top: 10%;
 }
 
-.success{
-  background-color: #6bf3ba;
-}
-
-.fail{
-  background-color: #FF665f;
-}
 
 /*iPad*/
 @media only screen and (max-width: 991px){
@@ -69,15 +57,36 @@ li{
   --blue-dark: #405e9b;
 }
 
+
+.success{
+  background-color: #d1ffc1;
+  color: #38f335;
+}
+
+.fail{
+  background-color: #ffcfcc;
+  color: #ff483f;
+}
+
+h3{
+ font-weight: bold;
+}
+
+
+.btn-class .fail{
+  background: #ffcfcc;
+  border: #ff483f solid 1px;
+}
+
 .btn-class{
-  background: var(--blue);
-  border: var(--blue-dark) solid 1px;
+  background: #ff5f69;
+  border: #ff483f solid 1px;
   border-radius: 3px;
   color: #fff;
   display: block;
-  font-size: 14px;
+  font-size: 24px;
   padding: 8px 8px;
-  margin-top: 3px;
+  margin-top: 5px;
   margin-bottom: 3px;
   text-decoration: none;
   text-align: center;
@@ -98,7 +107,6 @@ li{
 /* Modal Dialog
  ---------------------- */
 .modal-dialog-class{
-   background: #fefefe;
    border: var(--gray) solid 1px;
    border-radius: 5px;
    position: fixed;
@@ -110,7 +118,7 @@ li{
 }
 
 .modal-body-class{
-  padding: var(--space)20%;
+  padding: var(--space)10%;
 }
 
 .modal-footer-class{
