@@ -60,11 +60,12 @@ export class LevelPage extends React.Component {
               </li>
             )}
           </ul>
-          <div className={this.state.isShowModal ? "modal-class container-fluid" : "hidden"} id="modal" aria-hidden="true">
+          <div className={this.state.isShowModal ? "modal-class" : "hidden"} id="modal" aria-hidden="true">
             <div className={this.state.isSuccess ? "modal-dialog-class success" : "modal-dialog-class fail"}>
               <div className="modal-body-class">
                 {this.getContentModal()}
               </div>
+              <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
               <div className="modal-footer-class">
                 <button className={this.state.isSuccess ? "btn-class center-block btn-success" : "btn-class center-block btn-fail"}>Continuar</button>
               </div>
