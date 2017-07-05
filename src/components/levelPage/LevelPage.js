@@ -1,8 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
-import "./levelPage-styles.css"
+import "./levelPage-styles.css";
 import  * as routesPath from "../../routePaths";
 
 const managerQuiz = new ManagerQuiz();
@@ -45,7 +44,7 @@ export class LevelPage extends React.Component {
     let newQuestionLevel = managerQuiz.updateQuestionForLevel(indexCurrentQuestion,this.state);
 
     if(newQuestionLevel.length === 0){
-      this.props.router.push(routesPath.WINNER)
+      this.props.router.push(routesPath.WINNER);
     }else {
       let newState = {
         questionsLevel: newQuestionLevel,
@@ -60,7 +59,7 @@ export class LevelPage extends React.Component {
 
   getContentModal(){
     if(this.state.isSuccess){
-      return (<h2>Tu respuesta es correcta</h2>)
+      return (<h2>Tu respuesta es correcta</h2>);
     }else{
       return (
         <div>
@@ -104,7 +103,8 @@ export class LevelPage extends React.Component {
 }
 
 LevelPage.propTypes = {
-  questionsLevel: PropTypes.array
+  questionsLevel: PropTypes.array,
+  router: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -118,12 +118,5 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  /*
-  return {
-    actions: bindActionCreators(PageLevelAction, dispatch)
-  };
-  */
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(LevelPage);
+export default connect(mapStateToProps,() =>{})(LevelPage);

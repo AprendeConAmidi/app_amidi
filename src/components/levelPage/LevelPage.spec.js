@@ -9,7 +9,7 @@ describe("<LevelPage/>", () =>{
   let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
 
   function mount(){
-    let wrapper = shallow(<LevelPage/>);
+    let wrapper = shallow(<LevelPage router={{}}/>);
     wrapper.setProps({ questionsLevel: [questionStub]});
     return wrapper;
   }
@@ -26,11 +26,11 @@ describe("<LevelPage/>", () =>{
     }
     expect(questionStatement.length).toBe(1);
     expect(groupAnswer.length).toBe(questionStub.answers.length);
-    expect(modal.hasClass("hidden")).toBe(true)
+    expect(modal.hasClass("hidden")).toBe(true);
   });
 
   it("when currentQuestion is empty render <div></div>", function () {
-    let wrapper = shallow(<LevelPage/>);
+    let wrapper = shallow(<LevelPage router={{}}/>);
 
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);
@@ -64,7 +64,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer fail and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage/>);
+    let wrapper = shallow(<LevelPage router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
 
@@ -81,7 +81,7 @@ describe("<LevelPage/>", () =>{
 
   it("questionsLevel finish return start", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
-    let wrapper = shallow(<LevelPage/>);
+    let wrapper = shallow(<LevelPage router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
 
     let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -97,7 +97,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage/>);
+    let wrapper = shallow(<LevelPage router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
 
@@ -125,10 +125,8 @@ describe("<LevelPage/>", () =>{
     answerSuccess.simulate('click');
     simulateClickModal(wrapper);
 
-    expect(routeMock).toBe(routesPath.WINNER)
+    expect(routeMock).toBe(routesPath.WINNER);
   });
-
-
 });
 
 function simulateClickModal(wrapper) {
