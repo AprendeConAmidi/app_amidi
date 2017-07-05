@@ -55,26 +55,28 @@ li{
   --space: 10px;
   --blue: #428bca;
   --blue-dark: #405e9b;
+  --green-success: #33be30;
+  --red-fail: #ff483f;
 }
 
 
 .success{
-  border: #33be30 solid 1px;
+  border: var(--green-success) solid 1px;
   background-color: #d1ffc1;
-  color: #33be30;
+  color: var(--green-success);
 }
 
-.hr-success{border-top: 1px solid #33be30}
-.hr-fail{border-top: 1px solid #ff483f}
+.hr-success{border-bottom: 1px solid var(--green-success)}
+.hr-fail{border-bottom: 1px solid var(--red-fail)}
 
 .fail{
-  border: #ff483f solid 1px;
+  border: var(--red-fail) solid 1px;
   background-color: #ffcfcc;
-  color: #ff483f;
+  color: var(--red-fail);
 }
 
 .btn-fail{
-  background: #ff483f;
+  background: var(--red-fail);
 }
 
 .btn-success{
@@ -87,11 +89,10 @@ li{
   display: block;
   font-size: 24px;
   padding: 8px 8px;
-  margin: 5px;
+  margin: 8px auto;
   text-align: center;
   min-width: 98%;
   position: relative;
-
 }
 
 .modal-class{
@@ -120,6 +121,3 @@ li{
   padding: var(--space)10%;
 }
 
-.modal-footer-class{
-  text-align: right;
-}
