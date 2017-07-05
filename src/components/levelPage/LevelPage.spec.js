@@ -9,9 +9,7 @@ describe("<LevelPage/>", () =>{
   let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
 
   function mount(){
-    let wrapper = shallow(<LevelPage router={{}}/>);
-    wrapper.setProps({ questionsLevel: [questionStub]});
-    return wrapper;
+    return shallow(<LevelPage questionsLevel={[questionStub]} router={{}}/>);
   }
 
   it("level start", function () {
@@ -64,8 +62,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer fail and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage router={{}}/>);
-    wrapper.setProps({ questionsLevel: questionsStub});
+    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
 
     answerFail.simulate('click');
@@ -81,7 +78,7 @@ describe("<LevelPage/>", () =>{
 
   it("questionsLevel finish return start", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
-    let wrapper = shallow(<LevelPage router={{}}/>);
+    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
 
     let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -97,7 +94,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage router={{}}/>);
+    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
 
@@ -114,12 +111,12 @@ describe("<LevelPage/>", () =>{
   it("Player winner level", function () {
     let routeMock = null;
     let propsStub = {
+      questionsLevel: [questionStub],
       router: {
         push: function (routePath) {
           routeMock = routePath;}
       }};
     let wrapper = shallow(<LevelPage {...propsStub}/>);
-    wrapper.setProps({ questionsLevel: [questionStub]});
 
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
     answerSuccess.simulate('click');

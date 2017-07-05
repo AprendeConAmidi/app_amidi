@@ -1,7 +1,9 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link} from 'react-router';
 import * as PageSelectorAction from '../../actions/PageSelectorAction';
+import  * as routesPath from "../../routePaths";
 
 
 export class PageSelector extends React.Component {
@@ -39,7 +41,6 @@ export class PageSelector extends React.Component {
     return categories;
   }
 
-
   getLevels(questions) {
     let levels = [];
     questions.forEach((question) => {
@@ -49,7 +50,6 @@ export class PageSelector extends React.Component {
     });
     return levels;
   }
-
 
   isCategoryMountable(level, mountsItem, newCategory) {
     if (newCategory.level === level) {
@@ -70,8 +70,10 @@ export class PageSelector extends React.Component {
             countCategories.push(category);
             return (
               <div key={category.name} id={category.name} className="container">
-                <img src="../../assets/categories/pastoreo.png" alt=""/>
-                <h4>{category.name}</h4>
+                <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
+                  <img src="../../assets/categories/pastoreo.png" alt=""/>
+                  <h4>{category.name}</h4>
+                </Link>
               </div>
             );
           }})

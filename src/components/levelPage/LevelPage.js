@@ -11,8 +11,8 @@ export class LevelPage extends React.Component {
     super(props, context);
 
     this.state = {
-      questionsLevel: [],
-      currentQuestion: undefined,
+      questionsLevel: this.props.questionsLevel || [],
+      currentQuestion: this.props.questionsLevel ? this.props.questionsLevel[0]:  null,
       isShowModal: false,
       isSuccess: false,
     };
@@ -56,7 +56,6 @@ export class LevelPage extends React.Component {
     }
   }
 
-
   getContentModal(){
     if(this.state.isSuccess){
       return (<h2>Tu respuesta es correcta</h2>);
@@ -99,7 +98,6 @@ export class LevelPage extends React.Component {
     }
     return <div/>;
   }
-
 }
 
 LevelPage.propTypes = {

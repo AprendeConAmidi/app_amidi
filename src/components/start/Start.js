@@ -7,7 +7,7 @@ const Start = () => {
   return (
     <div className="background-red">
       <img src="../../assets/img/amidi_nubes.png" alt="Amidi" className="amidi"/>
-      <Link className="start" to={paths.LEVEL_PAGE}>
+      <Link className="start" to={paths.SELECTOR_PAGE}>
           <div className="start-btn">JUGAR</div>
       </Link>
     </div>

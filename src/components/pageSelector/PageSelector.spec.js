@@ -27,7 +27,6 @@ describe("<PageSelector />", () => {
     });
 
     let wrapper = shallow(<PageSelector questions={serverQuestionStub.questions}/>);
-    console.log(wrapper.debug());
 
     categories.forEach((category) => {
       let levelContainer = wrapper.find({id: category});
