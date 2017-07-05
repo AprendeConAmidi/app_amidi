@@ -153,7 +153,6 @@ function findContainsText(wrapper, answer) {
   }
 }
 
-
 function returnAnswerFail(question) {
   return (question.correctAnswer !== question.answers[0]) ? question.answers[0] : question.answers[1];
 }

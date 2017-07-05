@@ -88,14 +88,11 @@ export class LevelPage extends React.Component {
                 {this.getContentModal()}
               </div>
               <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
-              <div className="modal-footer-class">
-                <button
-                  className={this.state.isSuccess ? "btn-class center-block btn-success" : "btn-class center-block btn-fail"}
-                  onClick={this.updateLevel}
-                >
-                  Continuar
-                </button>
-              </div>
+              <button
+                className={this.state.isSuccess ? "btn-class btn-success" : "btn-class btn-fail"}
+                onClick={this.updateLevel}>
+                Continuar
+              </button>
             </div>
           </div>
         </div>
@@ -113,7 +110,6 @@ LevelPage.propTypes = {
 function mapStateToProps(state, ownProps) {
   if(!!ownProps.params) {
     const level = ownProps.params.level;
-
     return {
       questionsLevel: managerQuiz.filterForLevel(level, state.questions)
     };
