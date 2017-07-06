@@ -83,8 +83,9 @@ export class PageSelector extends React.Component {
 
   render() {
     return (
-      <div id="levelsMount" className="level-mount">
-        {this.mountLevels()}
+      <div>
+        <h1 className="title">El Libro De La Historia Canaria</h1>
+        <div id="levelsMount">{this.mountLevels()}</div>
       </div>
     );
   }

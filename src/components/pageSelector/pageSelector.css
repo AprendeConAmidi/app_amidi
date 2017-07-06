@@ -1,7 +1,14 @@
+.title{
+  text-align: center;
+}
+
+
+
+/*resposive*/
 .level{
   transform: translateX(0%);
   text-align: center;
 }
- .category{
-  display: inline-block;
- }
+.category{
+    display: inline-block;
+}
