@@ -686,6 +686,185 @@ export const serverQuestionStub = {
         "Una persona poco responsable que no acudía a sus compromisos",
         "Una herramienta utilizada para hacer pequeños hoyos en los surcos y luego colocar las semillas."
       ]
+    },
+    {
+      "_id": "59077717f303050011611234",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "el 46%",
+      "question": "¿Qué porcentaje de Gran Canarias fue declarada Reserva de la Biosfera?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "el 20%",
+        "el 33%",
+        "el 46%"
+      ]
+    },
+    {
+      "_id": "59077717f303050011612435",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Todas son correctas",
+      "question": "¿Por que el jardín botánico es tan importante?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Es el jardín botánico más grande de España",
+        "Es el hogar de especies vegetales en peligro de extinción",
+        "Fue creado con la idea de reunir en un solo lugar toda la riqueza botánica de las islas",
+        "Todas son correctas"
+      ]
+    },
+    {
+      "_id": "59077717f303050011612345",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Tempestad petrificada",
+      "question": "¿Miguel Unamuno como definió al Roque nublo?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Tempestad petrificada",
+        "Un fantástico mirador",
+        "monolito de 80 metros"
+      ]
+    },
+    {
+      "_id": "59077717f303050011613456",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Un bosque subtropical único",
+      "question": "¿Qué es la laurisilva canaria?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Una ingrediente para la comida",
+        "Un remedio para el dolor de cabeza",
+        "Un bosque subtropical único"
+      ]
+    },
+    {
+      "_id": "59077717f303050011614567",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Un planta caracterizada por sus hojas de un color rojizo oscuro",
+      "question": "¿Qué es la cresta de gallo?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "La parte superior de la cabeza de la cabeza de un gallo",
+        "Un planta caracterizada por sus hojas de un color rojizo oscuro"
+      ]
+    },
+    {
+      "_id": "59077717f303050011615678",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Las púas",
+      "question": "¿Qué parte del erizo de mar es más grande?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Las púas",
+        "El cuerpo"
+      ]
+    },
+    {
+      "_id": "59077717f303050011616789",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "6",
+      "question": "¿Cuantas especies de tortugas están representadas en las islas canarias?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "1",
+        "6",
+        "2"
+      ]
+    },
+    {
+      "_id": "59077717f303050011617890",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Garajonay",
+      "question": "El bosque de Laurisilva es caracteristico del Parque Nacional de ....",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "La caldera de Taburiente",
+        "Garajonay",
+        "Teide",
+        "Timanfaya"
+      ]
+    },
+    {
+      "_id": "59077717f303050011619012",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Garajonay",
+      "question": "El bosque de Laurisilva es caracteristico del Parque Nacional de ....",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "La caldera de Taburiente",
+        "Garajonay",
+        "Teide",
+        "Timanfaya"
+      ]
+    },
+    {
+      "_id": "59077717f303050011610123",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Todas las anteriores y más",
+      "question": "¿Donde se puede encontrar la mariposa monarca?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Australia",
+        "America del Norte",
+        "Nueva Zelanda",
+        "Islas Canarias",
+        "Todas las anteriores y más"
+      ]
+    },
+    {
+      "_id": "59077717f303050011619876",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "level": "2",
+      "correctAnswer": "Ambas son ciertas",
+      "question": "¿Por que la Mariposa Monarca se está extinguiendo en Tenerife?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Las mariposas son sensibles a la contaminación",
+        "Cada especie de mariposa necesita una planta específica",
+        "Ambas son ciertas"
+      ]
     }
   ]
 };
