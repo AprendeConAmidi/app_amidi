@@ -12,7 +12,6 @@ import Start from "./components/start/Start";
 export default(
   <Route components={App}>
     <Route path={paths.INDEX} component={Start}/>
-    <Route path={paths.LEVEL_PAGE} component={LevelPageConnect}/>
     <Route path={paths.LEVEL_PAGE+"/:level"} component={LevelPageConnect}/>
     <Route path={paths.SELECTOR_PAGE} component={PageSelectorConnect}/>
     <Route path={paths.WINNER} component={WinnerPageConnect}/>
