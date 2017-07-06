@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
 import * as PageSelectorAction from '../../actions/PageSelectorAction';
 import  * as routesPath from "../../routePaths";
-import "./pageSelector.css"
+import "./pageSelector.css";
 
 export class PageSelector extends React.Component {
 
