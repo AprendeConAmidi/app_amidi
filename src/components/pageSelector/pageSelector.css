@@ -1,0 +1,7 @@
+.level{
+  transform: translateX(0%);
+  text-align: center;
+}
+ .category{
+  display: inline-block;
+ }

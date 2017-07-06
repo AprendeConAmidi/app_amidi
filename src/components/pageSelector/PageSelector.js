@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
 import * as PageSelectorAction from '../../actions/PageSelectorAction';
 import  * as routesPath from "../../routePaths";
-
+import "./pageSelector.css"
 
 export class PageSelector extends React.Component {
 
@@ -64,17 +64,17 @@ export class PageSelector extends React.Component {
     let countCategories = [];
 
     return this.state.levels.map((level) =>
-      <div key={level.toString()} name={level} className="row text-center center-block">{
+      <div key={level.toString()} name={level} className="level">{
         this.state.categories.map((category) => {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);
             return (
-              <div key={category.name} id={category.name} className="container">
+              <span key={category.name} id={category.name} className="category">
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
                   <img src="../../assets/categories/pastoreo.png" alt=""/>
                   <h4>{category.name}</h4>
                 </Link>
-              </div>
+              </span>
             );
           }})
       }</div>
@@ -83,7 +83,7 @@ export class PageSelector extends React.Component {
 
   render() {
     return (
-      <div id="levelsMount">
+      <div id="levelsMount" className="level-mount">
         {this.mountLevels()}
       </div>
     );
