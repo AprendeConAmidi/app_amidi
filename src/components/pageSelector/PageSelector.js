@@ -6,6 +6,7 @@ import * as PageSelectorAction from '../../actions/PageSelectorAction';
 import  * as routesPath from "../../routePaths";
 import "./pageSelector.css";
 
+const imagesCategories = importAll(() =>(require.context('../../assets/categories', false, /\.(png|jpe?g|svg)$/)));
 
 export class PageSelector extends React.Component {
 
@@ -35,7 +36,8 @@ export class PageSelector extends React.Component {
       if (categories.indexOf(question.category) === -1) {
         categories.push({
           name: question.category,
-          level: question.level
+          level: question.level,
+          image: question.image
         });
       }
     });
@@ -72,7 +74,7 @@ export class PageSelector extends React.Component {
             return (
               <div key={category.name} id={category.name} className="category">
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
-                  <img src={"../../assets/categories/"+category.name+".png"} alt=""/>
+                  <img src={getImageCategory(category.image)} />
                   <h4>{category.name}</h4>
                 </Link>
               </div>
@@ -92,6 +94,20 @@ export class PageSelector extends React.Component {
   }
 
 }
+
+function importAll(r) {
+  try{
+    r = r();
+    return r.keys().map(r);
+  }catch(err){
+    /*the catch is path for test, it is fine for now*/
+    return [];
+  }
+}
+function getImageCategory(nameImage){
+  return imagesCategories.filter((imageCategory) => (imageCategory.includes(nameImage)))[0];
+}
+
 
 PageSelector.propTypes = {questions: PropTypes.array};
 
