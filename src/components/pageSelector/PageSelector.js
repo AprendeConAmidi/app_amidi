@@ -6,6 +6,7 @@ import * as PageSelectorAction from '../../actions/PageSelectorAction';
 import  * as routesPath from "../../routePaths";
 import "./pageSelector.css";
 
+
 export class PageSelector extends React.Component {
 
   constructor(props, context) {
@@ -69,12 +70,12 @@ export class PageSelector extends React.Component {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);
             return (
-              <span key={category.name} id={category.name} className="category">
+              <div key={category.name} id={category.name} className="category">
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
                   <img src={"../../assets/categories/"+category.name+".png"} alt=""/>
                   <h4>{category.name}</h4>
                 </Link>
-              </span>
+              </div>
             );
           }})
       }</div>
