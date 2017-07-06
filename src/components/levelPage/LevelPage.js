@@ -26,7 +26,7 @@ export class LevelPage extends React.Component {
 
     let newState = {
       questionsLevel: Object.assign([], nextProps.questionsLevel),
-      currentQuestion: !!currentQuestion ? currentQuestion: nextProps.questionsLevel[0],
+      currentQuestion: currentQuestion ? currentQuestion: nextProps.questionsLevel[0],
     };
     this.setState(Object.assign({}, this.state, newState));
   }
@@ -106,7 +106,7 @@ LevelPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  if(!!ownProps.params) {
+  if(ownProps.params) {
     const level = ownProps.params.level;
     return {
       questionsLevel: managerQuiz.filterForLevel(level, state.questions)

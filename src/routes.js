@@ -3,7 +3,6 @@ import {Route} from 'react-router';
 import * as paths from './routePaths';
 
 import App from './components/App';
-import FormPageConnect from './components/FormPage';
 import LevelPageConnect from './components/levelPage/LevelPage';
 import WinnerPageConnect from './components/winnerPage/winnerPage';
 import PageSelectorConnect from './components/pageSelector/PageSelector';
@@ -16,7 +15,6 @@ export default(
     <Route path={paths.LEVEL_PAGE} component={LevelPageConnect}/>
     <Route path={paths.LEVEL_PAGE+"/:level"} component={LevelPageConnect}/>
     <Route path={paths.SELECTOR_PAGE} component={PageSelectorConnect}/>
-    <Route path={paths.POC_INPUT} component={FormPageConnect}/>
     <Route path={paths.WINNER} component={WinnerPageConnect}/>
   </Route>
 );
