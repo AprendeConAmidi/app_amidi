@@ -71,7 +71,7 @@ export class PageSelector extends React.Component {
             return (
               <span key={category.name} id={category.name} className="category">
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
-                  <img src="../../assets/categories/pastoreo.png" alt=""/>
+                  <img src={"../../assets/categories/"+category.name+".png"} alt=""/>
                   <h4>{category.name}</h4>
                 </Link>
               </span>
