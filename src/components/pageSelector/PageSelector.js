@@ -66,15 +66,17 @@ export class PageSelector extends React.Component {
   mountLevels() {
     let countCategories = [];
 
-    return this.state.levels.map((level) =>
-      <div key={level.toString()} name={level} className="level">{
+    return this.state.levels.map((level,index) =>
+      <div key={level.toString()} name={level} className={(index%2 === 0) ? "level row-pair" : "level" }>{
         this.state.categories.map((category) => {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);
             return (
-              <div key={category.name} id={category.name} className="category">
+              <div key={category.name} id={category.name} className="category" >
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
-                  <img src={getImageCategory(category.image)} />
+                  <img src={getImageCategory(category.image)}
+                       className="img-responsive"
+                  />
                   <h4>{category.name}</h4>
                 </Link>
               </div>
@@ -86,7 +88,7 @@ export class PageSelector extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <h1 className="title">El Libro De La Historia Canaria</h1>
         <div id="levelsMount">{this.mountLevels()}</div>
       </div>

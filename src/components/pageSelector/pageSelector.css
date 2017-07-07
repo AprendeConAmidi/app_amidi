@@ -2,13 +2,27 @@
   text-align: center;
 }
 
+.row-pair{
+  background-color: #4ec1cf;
+}
 
 
-/*resposive*/
 .level{
   transform: translateX(0%);
   text-align: center;
+
+  padding-top: 5%;
 }
+
 .category{
-    display: inline-block;
+  display: inline-table;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+@media (max-width: 380px) {
+  .category{
+    width: 110px;
+    height: auto;
+  }
 }
