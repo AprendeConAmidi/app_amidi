@@ -7,12 +7,13 @@ import {loadAllQuestions} from './actions/PageSelectorAction';
 
 import configureStore from './store/configureStore';
 
-
-//require('./favicon.ico');
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 import { syncHistoryWithStore } from  'react-router-redux';
 
+
+/*meta*/
+require('./assets/img/amidi.png');
 
 const store = configureStore();
 store.dispatch(loadAllQuestions());
