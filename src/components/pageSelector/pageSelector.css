@@ -6,6 +6,19 @@
   background-color: #4ec1cf;
 }
 
+.disabled-category{
+  pointer-events: none;
+}
+.disabled-category h4{
+  color: #575756;
+}
+.disabled-category h4{
+  color: #575756;
+}
+.disabled-category img{
+  -webkit-filter: grayscale(100%); filter: grayscale(100%);
+}
+
 
 .level{
   transform: translateX(0%);

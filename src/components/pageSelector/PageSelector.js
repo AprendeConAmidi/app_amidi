@@ -67,13 +67,13 @@ export class PageSelector extends React.Component {
     let countCategories = [];
 
     return this.state.levels.map((level,index) =>
-      <div key={level.toString()} name={level} className={(index%2 === 0) ? "level row-pair" : "level" }>{
+      <div key={level.toString()} name={level} className={(index%2 === 0) ? "level row-pair" : "level"}>{
         this.state.categories.map((category) => {
           if (this.isCategoryMountable(level, countCategories, category)) {
             countCategories.push(category);
             return (
               <div key={category.name} id={category.name} className="category" >
-                <Link to={routesPath.LEVEL_PAGE+"/"+category.name}>
+                <Link to={routesPath.LEVEL_PAGE+"/"+category.name} className="disabled-category">
                   <img src={getImageCategory(category.image)}
                        className="img-responsive"
                   />
