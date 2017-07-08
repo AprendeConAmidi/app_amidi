@@ -33,7 +33,7 @@
   padding-right: 2%;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .category{
     width: 110px;
     height: auto;
