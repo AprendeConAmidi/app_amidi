@@ -48,16 +48,14 @@ describe("<PageSelector />", () => {
     expect(linkCategoryNotAllowed.hasClass("disabled-category")).toBe(true);
   });
 
+});
 
-  function findContainsTagWithText(wrapper,answer,tag) {
-    let listAnswer = wrapper.find(tag);
+function findContainsTagWithText(wrapper,answer,tag) {
+  let listAnswer = wrapper.find(tag);
 
-    for(let i = 0;i < listAnswer.length; i++){
-      if(listAnswer.at(i).text() === answer){
-        return wrapper.at(i);
-      }
+  for(let i = 0;i < listAnswer.length; i++){
+    if(listAnswer.at(i).text() === answer){
+      return wrapper.at(i);
     }
   }
-
-
-});
+}
