@@ -19,6 +19,7 @@ export class PageSelector extends React.Component {
     };
     this.mountLevels = this.mountLevels.bind(this);
     this.isCategoryMountable = this.isCategoryMountable.bind(this);
+    this.updateAccessLevel = this.updateAccessLevel.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -54,6 +55,14 @@ export class PageSelector extends React.Component {
     return levels;
   }
 
+  updateAccessLevel(level){
+    let disableCssClass = "disabled-category";
+    if(level === '1'){
+      return "";
+    }
+    return disableCssClass;
+  }
+
   isCategoryMountable(level, mountsItem, newCategory) {
     if (newCategory.level === level) {
       let categoryFilterMounts = mountsItem.filter((categoryMount) => categoryMount.name === newCategory.name);
@@ -73,7 +82,7 @@ export class PageSelector extends React.Component {
             countCategories.push(category);
             return (
               <div key={category.name} id={category.name} className="category" >
-                <Link to={routesPath.LEVEL_PAGE+"/"+category.name} className="disabled-category">
+                <Link to={routesPath.LEVEL_PAGE+"/"+category.name} className={this.updateAccessLevel(level)}>
                   <img src={getImageCategory(category.image)}
                        className="img-responsive"
                   />
