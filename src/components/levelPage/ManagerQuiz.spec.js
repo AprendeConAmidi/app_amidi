@@ -1,5 +1,5 @@
 import * as UtilStub from "../../api/StubApi/UtilStubApi";
-import {serverQuestionStub} from "../../api/StubApi/ServerApiStub";
+import {serverContentStub} from "../../api/StubApi/ServerApiStub";
 import ManagerQuiz from './ManagerQuiz';
 
 
@@ -10,7 +10,7 @@ describe("ManagerQuizShould", () => {
     let category = "Pastoreo y Cereal 2";
 
     const questionsFilter =
-      managerQuiz.filterForLevel(category, serverQuestionStub.questions);
+      managerQuiz.filterForLevel(category, serverContentStub.questions);
 
     const actualQuestion = questionsFilter[0];
     expect(actualQuestion.category).toEqual(UtilStub.getQuestionFor(category).category);
@@ -20,7 +20,7 @@ describe("ManagerQuizShould", () => {
     let category = "Pastoreo y Cereal 2";
 
     const questionsFilter =
-      managerQuiz.filterForLevel(category, serverQuestionStub.questions);
+      managerQuiz.filterForLevel(category, serverContentStub.questions);
 
     const actualQuestions = questionsFilter;
     expect(actualQuestions.length).toBe(10);
@@ -30,7 +30,7 @@ describe("ManagerQuizShould", () => {
     let category = "Pastoreo y Cereal 2";
 
     const questionsFilter =
-      managerQuiz.filterForLevel(category, serverQuestionStub.questions);
+      managerQuiz.filterForLevel(category, serverContentStub.questions);
 
     let isOrder = isOrderQuestions(questionsFilter);
 
@@ -39,7 +39,7 @@ describe("ManagerQuizShould", () => {
 });
 
 function isOrderQuestions(questions) {
-  let serverStubQuestion = serverQuestionStub.questions;
+  let serverStubQuestion = serverContentStub.questions;
 
   let position;
   for(let index in serverStubQuestion) {

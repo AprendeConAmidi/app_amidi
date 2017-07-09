@@ -1,12 +1,12 @@
 import {ServerApiStub as ServerApi} from '../api/StubApi/ServerApiStub';
 import * as type from './actionTypes';
 
-export function loadAllQuestions() {
+export function loadContent() {
   return function (dispatch) {
-    return ServerApi.loadAllQuestions().then(questions => {
+    return ServerApi.loadContent().then(content => {
       dispatch({
-          type: type.LOAD_ALL_QUESTIONS,
-          questions: questions
+          type: type.LOAD_ALL_CONTENT,
+          content: content,
         }
       );
     }).catch(error => {

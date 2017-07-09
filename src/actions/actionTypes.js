@@ -1,2 +1,2 @@
-export const LOAD_ALL_QUESTIONS = 'LOAD_ALL_QUESTIONS';
+export const LOAD_ALL_CONTENT = 'LOAD_ALL_CONTENT';
 

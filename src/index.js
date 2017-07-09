@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import {browserHistory} from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
-import {loadAllQuestions} from './actions/PageSelectorAction';
+import {loadContent} from './actions/PageSelectorAction';
 
 import configureStore from './store/configureStore';
 
@@ -16,7 +16,7 @@ import { syncHistoryWithStore } from  'react-router-redux';
 require('./assets/img/amidi.png');
 
 const store = configureStore();
-store.dispatch(loadAllQuestions());
+store.dispatch(loadContent());
 
 
 //Create an enhanced history that syncs navigation events with the store

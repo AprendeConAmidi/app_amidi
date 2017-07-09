@@ -13,9 +13,9 @@ export class PageSelector extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      questions: this.props.questions,
-      categories: this.getCategories(this.props.questions),
-      levels: this.getLevels(this.props.questions)
+      questions: this.props.content.questions,
+      categories: this.props.content.categories,
+      levels: this.getLevels(this.props.content.categories)
     };
     this.mountLevels = this.mountLevels.bind(this);
     this.isCategoryMountable = this.isCategoryMountable.bind(this);
@@ -24,9 +24,9 @@ export class PageSelector extends React.Component {
 
   componentWillReceiveProps(nextProps){
     let newState = {
-      questions: nextProps.questions,
-      categories: this.getCategories(nextProps.questions),
-      levels: this.getLevels(nextProps.questions)
+      questions: nextProps.content.questions,
+      categories: nextProps.content.categories,
+      levels: this.getLevels(nextProps.content.categories)
     };
     this.setState(Object.assign({},this.state, newState));
   }
@@ -45,9 +45,9 @@ export class PageSelector extends React.Component {
     return categories;
   }
 
-  getLevels(questions) {
+  getLevels(categories) {
     let levels = [];
-    questions.forEach((question) => {
+    categories.forEach((question) => {
       if (levels.indexOf(question.level) === -1) {
         levels.push(question.level);
       }
@@ -123,12 +123,12 @@ function getImageCategory(nameImage){
 PageSelector.propTypes = {questions: PropTypes.array};
 
 function mapStateToProps(state) {
-  return {questions: state.questions};
+  return {content: state.content};
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(PageSelectorAction, dispatch)
+   // actions: bindActionCreators(PageSelectorAction, dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PageSelector);

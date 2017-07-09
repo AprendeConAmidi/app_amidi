@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {serverQuestionStub}  from "../../api/StubApi/ServerApiStub";
+import {serverContentStub}  from "../../api/StubApi/ServerApiStub";
 import {Link} from "react-router";
 import {PageSelector} from "./PageSelector";
 
@@ -8,29 +8,24 @@ import {PageSelector} from "./PageSelector";
 describe("<PageSelector />", () => {
   it("each LevelPage in its level", function () {
     let levels  = [];
-    serverQuestionStub.questions.forEach((question) =>{
-      if(levels.indexOf(question.level) === -1) {
-        levels.push(question.level);
+    serverContentStub.categories.forEach((categories) =>{
+      if(levels.indexOf(categories.level) === -1) {
+        levels.push(categories.level);
       }
     });
 
-    let wrapper = shallow(<PageSelector questions={serverQuestionStub.questions}/>);
+    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
     let levelPageItem = wrapper.find({id: 'levelsMount'});
     expect(levelPageItem.children().length).toBe(levels.length);
   });
 
   it("render LevelPage item for category", function () {
-    let categories  = [];
-    serverQuestionStub.questions.forEach((question) =>{
-      if(categories.indexOf(question.category) === -1) {
-        categories.push(question.category);
-      }
-    });
+    let categories  = serverContentStub.categories;
 
-    let wrapper = shallow(<PageSelector questions={serverQuestionStub.questions}/>);
+    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
 
     categories.forEach((category) => {
-      let levelContainer = wrapper.find({id: category});
+      let levelContainer = wrapper.find({id: category.name});
       expect(levelContainer.length).toBe(1);
     });
   });
@@ -40,7 +35,7 @@ describe("<PageSelector />", () => {
     let firstCategory = "Pastoreo y Cereal 1";
     let secondCategory = "Pastoreo y Cereal 2";
 
-    let wrapper = shallow(<PageSelector questions={serverQuestionStub.questions}/>);
+    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
     let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),firstCategory,"h4");
     let linkCategoryNotAllowed = findContainsTagWithText(wrapper.find(Link),secondCategory,"h4");
 

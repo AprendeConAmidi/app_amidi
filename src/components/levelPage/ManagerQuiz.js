@@ -32,12 +32,12 @@ function ManagerQuiz() {
     return questions;
   }
 
-   this.updateQuestionForLevel = function(indexCurrentQuestion,stateLevel){
-    let newQuestionLevel = Object.assign([],stateLevel.questionsLevel);
-    if(stateLevel.isSuccess){
-      newQuestionLevel.splice(indexCurrentQuestion,1);
+   this.updateQuestionForLevel = function(indexCurrentQuestion,questions,isSuccess){
+    let newQuestions = Object.assign([],questions);
+    if(isSuccess){
+      newQuestions.splice(indexCurrentQuestion,1);
     }
-    return newQuestionLevel;
+    return newQuestions;
   };
 
 }

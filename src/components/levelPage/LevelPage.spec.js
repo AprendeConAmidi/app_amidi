@@ -9,7 +9,7 @@ describe("<LevelPage/>", () =>{
   let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
 
   function mount(){
-    return shallow(<LevelPage questionsLevel={[questionStub]} router={{}}/>);
+    return shallow(<LevelPage questionsCategory={[questionStub]} router={{}}/>);
   }
 
   it("level start", function () {
@@ -62,7 +62,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer fail and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
+    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
 
     answerFail.simulate('click');
@@ -72,13 +72,13 @@ describe("<LevelPage/>", () =>{
     let questionStatement = wrapper.find("h4");
     expect(questionStatement.text()).toBe(questionsStub[1].question);
     expect(modal.hasClass("hidden")).toBe(true);
-    expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length);
+    expect(wrapper.state().questionsCategory.length).toBe(questionsStub.length);
     expect(wrapper.state().isSuccess).toBe(false);
   });
 
   it("questionsLevel finish return start", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
-    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
+    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
 
     let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -94,7 +94,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage questionsLevel={questionsStub} router={{}}/>);
+    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
 
@@ -105,13 +105,13 @@ describe("<LevelPage/>", () =>{
     let questionStatement = wrapper.find("h4");
     expect(questionStatement.text()).toBe(questionsStub[1].question);
     expect(modal.hasClass("hidden")).toBe(true);
-    expect(wrapper.state().questionsLevel.length).toBe(questionsStub.length-1);
+    expect(wrapper.state().questionsCategory.length).toBe(questionsStub.length-1);
   });
 
   it("Player winner level", function () {
     let routeMock = null;
     let propsStub = {
-      questionsLevel: [questionStub],
+      questionsCategory: [questionStub],
       router: {
         push: function (routePath) {
           routeMock = routePath;}

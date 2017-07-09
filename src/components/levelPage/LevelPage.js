@@ -11,8 +11,8 @@ export class LevelPage extends React.Component {
     super(props, context);
 
     this.state = {
-      questionsLevel: this.props.questionsLevel || [],
-      currentQuestion: this.props.questionsLevel ? this.props.questionsLevel[0]:  null,
+      questionsCategory: this.props.questionsCategory || [],
+      currentQuestion: this.props.questionsCategory ? this.props.questionsCategory[0]:  null,
       isShowModal: false,
       isSuccess: false,
     };
@@ -25,8 +25,8 @@ export class LevelPage extends React.Component {
     let currentQuestion = this.state.currentQuestion;
 
     let newState = {
-      questionsLevel: Object.assign([], nextProps.questionsLevel),
-      currentQuestion: currentQuestion ? currentQuestion: nextProps.questionsLevel[0],
+      questionsCategory: Object.assign([], nextProps.questionsCategory),
+      currentQuestion: currentQuestion ? currentQuestion: nextProps.questionsCategory[0],
     };
     this.setState(Object.assign({}, this.state, newState));
   }
@@ -38,17 +38,19 @@ export class LevelPage extends React.Component {
 
   updateLevel(){
     let indexCurrentQuestion =
-      this.state.questionsLevel.indexOf(this.state.currentQuestion);
-    let indexNextQuestion = indexCurrentQuestion+1 < this.state.questionsLevel.length
+      this.state.questionsCategory.indexOf(this.state.currentQuestion);
+    let indexNextQuestion = indexCurrentQuestion+1 < this.state.questionsCategory.length
      ? indexCurrentQuestion+1 : 0;
-    let newQuestionLevel = managerQuiz.updateQuestionForLevel(indexCurrentQuestion,this.state);
+    let newQuestionCategory =
+      managerQuiz.updateQuestionForLevel(indexCurrentQuestion,
+        this.state.questionsCategory,this.state.isSuccess);
 
-    if(newQuestionLevel.length === 0){
+    if(newQuestionCategory.length === 0){
       this.props.router.push(routesPath.WINNER);
     }else {
       let newState = {
-        questionsLevel: newQuestionLevel,
-        currentQuestion: this.state.questionsLevel[indexNextQuestion],
+        questionsCategory: newQuestionCategory,
+        currentQuestion: this.state.questionsCategory[indexNextQuestion],
         isShowModal: false,
         isSuccess: false
       };
@@ -101,15 +103,15 @@ export class LevelPage extends React.Component {
 }
 
 LevelPage.propTypes = {
-  questionsLevel: PropTypes.array,
+  questionsCategory: PropTypes.array,
   router: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   if(ownProps.params) {
-    const level = ownProps.params.level;
+    const category = ownProps.params.category;
     return {
-      questionsLevel: managerQuiz.filterForLevel(level, state.questions)
+      questionsCategory: managerQuiz.filterForLevel(category, state.content.questions)
     };
   }else {
     return {};
