@@ -2,14 +2,14 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import * as UtilStub from '../../api/StubApi/UtilStubApi';
 import  * as routesPath from "../../routePaths";
-import {LevelPage} from "./LevelPage";
+import {CategoryPage} from "./CategoryPage";
 
 
-describe("<LevelPage/>", () =>{
+describe("<CategoryPage/>", () =>{
   let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
 
   function mount(){
-    return shallow(<LevelPage questionsCategory={[questionStub]} router={{}}/>);
+    return shallow(<CategoryPage questionsCategory={[questionStub]} router={{}}/>);
   }
 
   it("level start", function () {
@@ -28,7 +28,7 @@ describe("<LevelPage/>", () =>{
   });
 
   it("when currentQuestion is empty render <div></div>", function () {
-    let wrapper = shallow(<LevelPage router={{}}/>);
+    let wrapper = shallow(<CategoryPage router={{}}/>);
 
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);
@@ -62,7 +62,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer fail and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
 
     answerFail.simulate('click');
@@ -78,7 +78,7 @@ describe("<LevelPage/>", () =>{
 
   it("questionsLevel finish return start", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
-    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
 
     let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -94,7 +94,7 @@ describe("<LevelPage/>", () =>{
 
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<LevelPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
     wrapper.setProps({ questionsLevel: questionsStub});
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
 
@@ -116,7 +116,7 @@ describe("<LevelPage/>", () =>{
         push: function (routePath) {
           routeMock = routePath;}
       }};
-    let wrapper = shallow(<LevelPage {...propsStub}/>);
+    let wrapper = shallow(<CategoryPage {...propsStub}/>);
 
     let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
     answerSuccess.simulate('click');

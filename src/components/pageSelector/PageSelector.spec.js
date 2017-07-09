@@ -6,7 +6,7 @@ import {PageSelector} from "./PageSelector";
 
 
 describe("<PageSelector />", () => {
-  it("each LevelPage in its level", function () {
+  it("each CategoryPage in its level", function () {
     let levels  = [];
     serverContentStub.categories.forEach((categories) =>{
       if(levels.indexOf(categories.level) === -1) {
@@ -19,7 +19,7 @@ describe("<PageSelector />", () => {
     expect(levelPageItem.children().length).toBe(levels.length);
   });
 
-  it("render LevelPage item for category", function () {
+  it("render CategoryPage item for category", function () {
     let categories  = serverContentStub.categories;
 
     let wrapper = shallow(<PageSelector content={serverContentStub}/>);

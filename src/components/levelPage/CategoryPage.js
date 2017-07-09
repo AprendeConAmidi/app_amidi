@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import ManagerQuiz from './ManagerQuiz';
-import "./levelPage-styles.css";
+import "./CategoryPage-styles.css";
 import  * as routesPath from "../../routePaths";
 
 const managerQuiz = new ManagerQuiz();
-export class LevelPage extends React.Component {
+export class CategoryPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -102,7 +102,7 @@ export class LevelPage extends React.Component {
   }
 }
 
-LevelPage.propTypes = {
+CategoryPage.propTypes = {
   questionsCategory: PropTypes.array,
   router: PropTypes.object.isRequired
 };
@@ -119,4 +119,4 @@ function mapStateToProps(state, ownProps) {
 }
 
 
-export default connect(mapStateToProps,() =>{})(LevelPage);
+export default connect(mapStateToProps,() =>{})(CategoryPage);

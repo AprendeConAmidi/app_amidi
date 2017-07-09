@@ -3,7 +3,7 @@ import {Route} from 'react-router';
 import * as paths from './routePaths';
 
 import App from './components/App';
-import LevelPageConnect from './components/levelPage/LevelPage';
+import LevelPageConnect from './components/levelPage/CategoryPage';
 import WinnerPageConnect from './components/winnerPage/winnerPage';
 import PageSelectorConnect from './components/pageSelector/PageSelector';
 import Start from "./components/start/Start";
