@@ -36,7 +36,7 @@ describe("<PageSelector />", () => {
   });
 
 
-  it("when user not have access not can play", function () {
+  it("a new user can play in the level one", function () {
     let firstCategory = "Pastoreo y Cereal 1";
     let secondCategory = "Pastoreo y Cereal 2";
 
