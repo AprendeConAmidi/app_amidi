@@ -48,10 +48,9 @@ export class PageSelector extends React.Component {
     return disableCssClass;
   }
 
-
   mountLevels() {
     return this.state.levels.map((level,index) =>
-      <div key={level.toString()} name={level} className={(index%2 === 0) ? "level row-pair" : "level"}>{
+      <div key={level.toString()} className={(index%2 === 0) ? "level row-pair" : "level"}>{
         this.state.categories.map((category) => {
           if (category.level === level) {
             return (
