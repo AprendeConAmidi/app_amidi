@@ -30,7 +30,6 @@ describe("<PageSelector />", () => {
     });
   });
 
-
   it("a new user can play in the level one", function () {
     let firstCategory = "Pastoreo y Cereal 1";
     let secondCategory = "Pastoreo y Cereal 2";
@@ -42,6 +41,23 @@ describe("<PageSelector />", () => {
     expect(linkCategoryAllowed.hasClass("disabled-category")).toBe(false);
     expect(linkCategoryNotAllowed.hasClass("disabled-category")).toBe(true);
   });
+
+
+  it("user when finish level access to new Level", function () {
+    let userStub = {
+      categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]
+    };
+
+    let wrapper = shallow(<PageSelector user={userStub} content={serverContentStub}/>);
+
+    let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 1","h4");
+    let linkCategoryNewAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 2","h4");
+    let linkCategoryNotAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 3","h4");
+    expect(linkCategoryAllowed.hasClass("disabled-category")).toBe(false);
+    expect(linkCategoryNewAccess.hasClass("disabled-category")).toBe(false);
+    expect(linkCategoryNotAccess.hasClass("disabled-category")).toBe(true);
+  });
+
 
 });
 

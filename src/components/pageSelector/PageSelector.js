@@ -15,7 +15,8 @@ export class PageSelector extends React.Component {
     this.state = {
       questions: this.props.content.questions,
       categories: this.props.content.categories,
-      levels: this.getLevels(this.props.content.categories)
+      levels: this.getLevels(this.props.content.categories),
+      user: this.props.user
     };
     this.mountLevels = this.mountLevels.bind(this);
     this.updateAccessLevel = this.updateAccessLevel.bind(this);
@@ -43,9 +44,27 @@ export class PageSelector extends React.Component {
   updateAccessLevel(level){
     let disableCssClass = "disabled-category";
     if(level === '1'){
-      return "";
+      return "";}
+
+    if(this.state.user && this.state.user.categoriesComplete){
+      if(this.isLevelComplete(this.state.user, (level-1).toString(), this.state.categories)){
+        return "";
+      }
     }
+
     return disableCssClass;
+  }
+
+  isLevelComplete(user,level,categories){
+    let categoryInLevel = 0;
+    categories.forEach((category) => {
+      if(level === category.level){categoryInLevel ++;}});
+    let categoryCompleteInLevel = 0;
+    user.categoriesComplete.forEach((categoryComplete)=> {
+      if(categoryComplete.level === level){categoryCompleteInLevel ++;}
+    });
+
+    return categoryInLevel === categoryCompleteInLevel;
   }
 
   mountLevels() {
