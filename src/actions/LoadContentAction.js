@@ -1,7 +1,7 @@
 import {ServerApiStub as ServerApi} from '../api/StubApi/ServerApiStub';
 import * as type from './actionTypes';
 
-export function loadContent() {
+export function LoadContentAction() {
   return function (dispatch) {
     return ServerApi.loadContent().then(content => {
       dispatch({

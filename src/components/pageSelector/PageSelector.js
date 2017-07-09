@@ -1,8 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
-import * as PageSelectorAction from '../../actions/PageSelectorAction';
 import  * as routesPath from "../../routePaths";
 import "./pageSelector.css";
 
@@ -33,25 +31,20 @@ export class PageSelector extends React.Component {
 
   getLevels(categories) {
     let levels = [];
-    categories.forEach((question) => {
-      if (levels.indexOf(question.level) === -1) {
-        levels.push(question.level);
-      }
+    categories.forEach((category) => {
+      if (levels.indexOf(category.level) === -1) {levels.push(category.level);}
     });
     return levels;
   }
 
   updateAccessLevel(level){
     let disableCssClass = "disabled-category";
-    if(level === '1'){
-      return "";}
-
+    if(level === '1'){return "";}
     if(this.state.user && this.state.user.categoriesComplete){
       if(this.isLevelComplete(this.state.user, (level-1).toString(), this.state.categories)){
         return "";
       }
     }
-
     return disableCssClass;
   }
 
@@ -112,15 +105,10 @@ function getImageCategory(nameImage){
 }
 
 
-PageSelector.propTypes = {questions: PropTypes.array};
+PageSelector.propTypes = {content: PropTypes.object.isRequired};
 
 function mapStateToProps(state) {
   return {content: state.content};
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-   // actions: bindActionCreators(PageSelectorAction, dispatch)
-  };
-}
-export default connect(mapStateToProps, mapDispatchToProps)(PageSelector);
+export default connect(mapStateToProps, () => ({}))(PageSelector);
