@@ -1,2 +1,3 @@
 export const LOAD_ALL_CONTENT = 'LOAD_ALL_CONTENT';
+export const UPDATE_USER = 'UPDATE_USER';
 

@@ -46,6 +46,11 @@ export class CategoryPage extends React.Component {
         this.state.questionsCategory,this.state.isSuccess);
 
     if(newQuestionCategory.length === 0){
+      let userStub = {
+        categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]
+      };
+
+      this.setState(Object.assign({}, this.state, userStub));
       this.props.router.push(routesPath.WINNER);
     }else {
       let newState = {
