@@ -18,7 +18,6 @@ export class PageSelector extends React.Component {
       levels: this.getLevels(this.props.content.categories)
     };
     this.mountLevels = this.mountLevels.bind(this);
-    this.isCategoryMountable = this.isCategoryMountable.bind(this);
     this.updateAccessLevel = this.updateAccessLevel.bind(this);
   }
 
@@ -29,20 +28,6 @@ export class PageSelector extends React.Component {
       levels: this.getLevels(nextProps.content.categories)
     };
     this.setState(Object.assign({},this.state, newState));
-  }
-
-  getCategories(questions) {
-    let categories = [];
-    questions.forEach((question) => {
-      if (categories.indexOf(question.category) === -1) {
-        categories.push({
-          name: question.category,
-          level: question.level,
-          image: question.image
-        });
-      }
-    });
-    return categories;
   }
 
   getLevels(categories) {
@@ -63,23 +48,12 @@ export class PageSelector extends React.Component {
     return disableCssClass;
   }
 
-  isCategoryMountable(level, mountsItem, newCategory) {
-    if (newCategory.level === level) {
-      let categoryFilterMounts = mountsItem.filter((categoryMount) => categoryMount.name === newCategory.name);
-      return categoryFilterMounts.length === 0;
-    } else {
-      return false;
-    }
-  }
 
   mountLevels() {
-    let countCategories = [];
-
     return this.state.levels.map((level,index) =>
       <div key={level.toString()} name={level} className={(index%2 === 0) ? "level row-pair" : "level"}>{
         this.state.categories.map((category) => {
-          if (this.isCategoryMountable(level, countCategories, category)) {
-            countCategories.push(category);
+          if (category.level === level) {
             return (
               <div key={category.name} id={category.name} className="category" >
                 <Link to={routesPath.LEVEL_PAGE+"/"+category.name} className={this.updateAccessLevel(level)}>
