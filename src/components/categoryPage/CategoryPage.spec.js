@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import * as UtilStub from '../../api/StubApi/UtilStubApi';
+import {serverContentStub} from '../../api/StubApi/ServerApiStub';
 import  * as routesPath from "../../routePaths";
 import {CategoryPage} from "./CategoryPage";
 
@@ -109,9 +110,11 @@ describe("<CategoryPage/>", () =>{
   });
 
   it("Player winner level", function () {
+    const category = serverContentStub.categories.filter((category) => (category.name === questionStub.category))[0];
     let routeMock = null;
     let propsStub = {
       questionsCategory: [questionStub],
+      category : category,
       router: {
         push: function (routePath) {
           routeMock = routePath;}

@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
+import * as CategoryAction from '../../actions/CategoryAction';
 import "./CategoryPage-styles.css";
 import  * as routesPath from "../../routePaths";
 
@@ -46,11 +48,18 @@ export class CategoryPage extends React.Component {
         this.state.questionsCategory,this.state.isSuccess);
 
     if(newQuestionCategory.length === 0){
-      let userStub = {
-        categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]
+      let categoriesComplete = Object.assign([],this.props.user.categoriesComplete);
+      categoriesComplete.push({
+        name: this.props.category.name,
+        level: this.props.category.level
+      });
+
+      let updateUser = {
+        categoriesComplete:categoriesComplete
       };
 
-      this.setState(Object.assign({}, this.state, userStub));
+      console.log(this.props);
+      this.props.actions.saveCategoryAction(Object.assign({},this.props.user,updateUser));
       this.props.router.push(routesPath.WINNER);
     }else {
       let newState = {
@@ -114,14 +123,23 @@ CategoryPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   if(ownProps.params) {
-    const category = ownProps.params.category;
+    const categoryName = ownProps.params.category;
+    const category = state.content.categories.filter((category) => (category.name === categoryName))[0];
     return {
-      questionsCategory: managerQuiz.filterForLevel(category, state.content.questions)
+      questionsCategory: managerQuiz.filterForLevel(categoryName, state.content.questions),
+      category: category,
+      user: state.user
     };
   }else {
     return {};
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+     actions: bindActionCreators(CategoryAction, dispatch)
+  };
+}
 
-export default connect(mapStateToProps,() =>{})(CategoryPage);
+
+export default connect(mapStateToProps,mapDispatchToProps)(CategoryPage);

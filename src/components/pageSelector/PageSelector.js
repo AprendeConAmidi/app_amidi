@@ -108,7 +108,10 @@ function getImageCategory(nameImage){
 PageSelector.propTypes = {content: PropTypes.object.isRequired};
 
 function mapStateToProps(state) {
-  return {content: state.content};
+  return {
+    content: state.content,
+    user: state.user
+  };
 }
 
 export default connect(mapStateToProps, () => ({}))(PageSelector);

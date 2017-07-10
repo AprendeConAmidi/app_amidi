@@ -11,7 +11,6 @@ describe("CategoryAction", () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
     let userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};
     const action = CategoryAction.saveCategoryAction(userStub);
-
     await store.dispatch(action);
 
     let user = store.getState().user;
