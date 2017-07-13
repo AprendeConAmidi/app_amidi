@@ -1,4 +1,3 @@
-import React from 'react';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from '../reducers';
 import initialState from '../reducers/initialState';

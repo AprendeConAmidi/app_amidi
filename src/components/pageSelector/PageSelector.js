@@ -105,7 +105,10 @@ function getImageCategory(nameImage){
 }
 
 
-PageSelector.propTypes = {content: PropTypes.object.isRequired};
+PageSelector.propTypes = {
+  content: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 function mapStateToProps(state) {
   return {
