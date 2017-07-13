@@ -49,16 +49,22 @@ export class CategoryPage extends React.Component {
 
     if(newQuestionCategory.length === 0){
       let categoriesComplete = Object.assign([],this.props.user.categoriesComplete);
-      categoriesComplete.push({
+      let newCategory = {
         name: this.props.category.name,
         level: this.props.category.level
-      });
+      };
+
+      if(!managerQuiz.isContainCategory(categoriesComplete,newCategory)) {
+       categoriesComplete.push({
+         name: this.props.category.name,
+         level: this.props.category.level
+       });
+     }
 
       let updateUser = {
         categoriesComplete:categoriesComplete
       };
 
-      console.log(this.props);
       this.props.actions.saveCategoryAction(Object.assign({},this.props.user,updateUser));
       this.props.router.push(routesPath.WINNER);
     }else {

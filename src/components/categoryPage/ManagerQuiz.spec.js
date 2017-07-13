@@ -36,6 +36,46 @@ describe("ManagerQuizShould", () => {
 
     expect(isOrder).not.toBeTruthy();
   });
+
+  it("IsContainCategory return falso when not contain", function () {
+    let category ={
+      name: "Pastoreo y Cereal 1",
+      level: "1"
+    };
+    let categoriesComplete = [
+      {
+      name: "Pastoreo y Cereal 2",
+      level: "2"
+      }
+    ];
+    let isContain = managerQuiz.isContainCategory(categoriesComplete,category);
+    expect(isContain).toBe(false);
+  });
+
+  it("IsContainCategory return falso when is undefined", function () {
+    let isContain = managerQuiz.isContainCategory();
+    expect(isContain).toBe(false);
+  });
+
+
+  it("IsContainCategory return true when contain", function () {
+    let category ={
+      name: "Pastoreo y Cereal 1",
+      level: "1"
+    };
+    let categoriesComplete = [
+      category,
+      {
+      name: "Pastoreo y Cereal 2",
+      level: "2"
+      }
+    ];
+    let isContain = managerQuiz.isContainCategory(categoriesComplete,category);
+    expect(isContain).toBe(true);
+  });
+
+
+
 });
 
 function isOrderQuestions(questions) {

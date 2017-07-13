@@ -1,5 +1,22 @@
 function ManagerQuiz() {
 
+  this.isContainCategory = function(categoriesComplete, newCategory){
+    if(!categoriesComplete){return false;}
+    for(let index in categoriesComplete){
+      if(categoriesComplete[index].name === newCategory.name){return true;}
+    }
+    return false;
+  };
+
+
+  this.updateQuestionForLevel = function(indexCurrentQuestion,questions,isSuccess){
+    let newQuestions = Object.assign([],questions);
+    if(isSuccess){
+      newQuestions.splice(indexCurrentQuestion,1);
+    }
+    return newQuestions;
+  };
+
   this.filterForLevel = function(category, allQuestions){
     const NUM_MAX_QUESTION = 10;
     let filterQuestions;
@@ -31,14 +48,6 @@ function ManagerQuiz() {
 
     return questions;
   }
-
-   this.updateQuestionForLevel = function(indexCurrentQuestion,questions,isSuccess){
-    let newQuestions = Object.assign([],questions);
-    if(isSuccess){
-      newQuestions.splice(indexCurrentQuestion,1);
-    }
-    return newQuestions;
-  };
 
 }
 
