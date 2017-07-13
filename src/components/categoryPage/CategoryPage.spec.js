@@ -115,6 +115,10 @@ describe("<CategoryPage/>", () =>{
     let propsStub = {
       questionsCategory: [questionStub],
       category : category,
+      user:{
+        categoriesComplete:[]
+      },
+      actions:{saveCategoryAction : () =>0},
       router: {
         push: function (routePath) {
           routeMock = routePath;}
