@@ -46,14 +46,10 @@ export class CategoryPage extends React.Component {
     let indexNextQuestion = indexCurrentQuestion + 1 < this.state.questionsCategory.length
       ? indexCurrentQuestion + 1 : 0;
     let newQuestionCategory =
-      managerQuiz.updateQuestionForLevel(indexCurrentQuestion,
-        this.state.questionsCategory, this.state.isSuccess);
-
+      managerQuiz.updateQuestionForLevel(indexCurrentQuestion,this.state.questionsCategory,this.state.isSuccess);
     if (newQuestionCategory.length !== 0) {
       this.nextQuestion(newQuestionCategory,indexNextQuestion);
-    } else {
-      this.finishCategory();
-    }
+    } else {this.finishCategory();}
   }
 
   nextQuestion(newQuestionCategory,indexNextQuestion){
@@ -130,8 +126,11 @@ export class CategoryPage extends React.Component {
 }
 
 CategoryPage.propTypes = {
-  questionsCategory: PropTypes.array,
-  router: PropTypes.object.isRequired
+  questionsCategory: PropTypes.array.isRequired,
+  category: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
