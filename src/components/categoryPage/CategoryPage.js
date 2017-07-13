@@ -20,7 +20,9 @@ export class CategoryPage extends React.Component {
     };
 
     this.updateAnswer = this.updateAnswer.bind(this);
-    this.updateLevel = this.updateLevel.bind(this);
+    this.updateCategory = this.updateCategory.bind(this);
+    this.finishCategory = this.finishCategory.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -38,44 +40,49 @@ export class CategoryPage extends React.Component {
     this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
 
-  updateLevel(){
+  updateCategory() {
     let indexCurrentQuestion =
       this.state.questionsCategory.indexOf(this.state.currentQuestion);
-    let indexNextQuestion = indexCurrentQuestion+1 < this.state.questionsCategory.length
-     ? indexCurrentQuestion+1 : 0;
+    let indexNextQuestion = indexCurrentQuestion + 1 < this.state.questionsCategory.length
+      ? indexCurrentQuestion + 1 : 0;
     let newQuestionCategory =
       managerQuiz.updateQuestionForLevel(indexCurrentQuestion,
-        this.state.questionsCategory,this.state.isSuccess);
+        this.state.questionsCategory, this.state.isSuccess);
 
-    if(newQuestionCategory.length === 0){
-      let categoriesComplete = Object.assign([],this.props.user.categoriesComplete);
-      let newCategory = {
+    if (newQuestionCategory.length !== 0) {
+      this.nextQuestion(newQuestionCategory,indexNextQuestion);
+    } else {
+      this.finishCategory();
+    }
+  }
+
+  nextQuestion(newQuestionCategory,indexNextQuestion){
+    let newState = {
+      questionsCategory: newQuestionCategory,
+      currentQuestion: this.state.questionsCategory[indexNextQuestion],
+      isShowModal: false,
+      isSuccess: false
+    };
+    this.setState(Object.assign({}, this.state, newState));
+  }
+
+  finishCategory(){
+    let categoriesComplete = Object.assign([],this.props.user.categoriesComplete);
+    let newCategory = {
+      name: this.props.category.name,
+      level: this.props.category.level
+    };
+    if(!managerQuiz.isContainCategory(categoriesComplete,newCategory)) {
+      categoriesComplete.push({
         name: this.props.category.name,
         level: this.props.category.level
-      };
-
-      if(!managerQuiz.isContainCategory(categoriesComplete,newCategory)) {
-       categoriesComplete.push({
-         name: this.props.category.name,
-         level: this.props.category.level
-       });
-     }
-
+      });
       let updateUser = {
         categoriesComplete:categoriesComplete
       };
-
       this.props.actions.saveCategoryAction(Object.assign({},this.props.user,updateUser));
-      this.props.router.push(routesPath.WINNER);
-    }else {
-      let newState = {
-        questionsCategory: newQuestionCategory,
-        currentQuestion: this.state.questionsCategory[indexNextQuestion],
-        isShowModal: false,
-        isSuccess: false
-      };
-      this.setState(Object.assign({}, this.state, newState));
     }
+    this.props.router.push(routesPath.WINNER);
   }
 
   getContentModal(){
@@ -110,7 +117,7 @@ export class CategoryPage extends React.Component {
               <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
               <button
                 className={this.state.isSuccess ? "btn-class btn-success" : "btn-class btn-fail"}
-                onClick={this.updateLevel}>
+                onClick={this.updateCategory}>
                 Continuar
               </button>
             </div>
