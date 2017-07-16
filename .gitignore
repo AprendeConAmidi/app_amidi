@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 #dist folder
-dist
+/public/
 
 # IDEA/Webstorm project files
 .idea
@@ -38,3 +38,4 @@ dist
 
 # Mac files
 .DS_Store
+

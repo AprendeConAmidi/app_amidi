@@ -10,6 +10,21 @@
     This is an example of how to add features to index.html for only one environment.
     To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token in /webpack.config.prod.js on line 55.
    -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBftdFqqi0fAFvh8b5FOK97Kb0VgLGH6x8",
+      authDomain: "temporalamidi.firebaseapp.com",
+      databaseURL: "https://temporalamidi.firebaseio.com",
+      projectId: "temporalamidi",
+      storageBucket: "",
+      messagingSenderId: "440130502576"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
   <% if (htmlWebpackPlugin.options.trackJSToken) { %>
   <script>window._trackJs = {token: '<%= htmlWebpackPlugin.options.trackJSToken %>'};</script>
   <script src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
