@@ -5,52 +5,51 @@ import {serverContentStub} from '../../api/StubApi/ServerApiStub';
 import  * as routesPath from "../../routePaths";
 import {CategoryPage} from "./CategoryPage";
 
-
 describe("<CategoryPage/>", () =>{
-  let questionStub = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
+  let questionStubStandard = UtilStub.getQuestionFor("Pastoreo y Cereal 2");
 
-  function mount(){
-    return shallow(<CategoryPage questionsCategory={[questionStub]} router={{}}/>);
+  function customShallow(questionsStub){
+    return shallow(<CategoryPage questionsCategory={questionsStub} router={{}} user={{}} actions={{}} category={{}}/>);
   }
 
   it("level start", function () {
-    let wrapper = mount();
+    let wrapper = customShallow([questionStubStandard]);
     let questionStatement = wrapper.find("h4");
     let groupAnswer = wrapper.find("li");
     let modal = wrapper.find("#modal");
 
-    expect(questionStatement.text()).toBe(questionStub.question);
-    for(let index in questionStub.answers){
-      expect(groupAnswer.at(index).text()).toBe(questionStub.answers[index]);
+    expect(questionStatement.text()).toBe(questionStubStandard.question);
+    for(let index in questionStubStandard.answers){
+      expect(groupAnswer.at(index).text()).toBe(questionStubStandard.answers[index]);
     }
     expect(questionStatement.length).toBe(1);
-    expect(groupAnswer.length).toBe(questionStub.answers.length);
+    expect(groupAnswer.length).toBe(questionStubStandard.answers.length);
     expect(modal.hasClass("hidden")).toBe(true);
   });
 
   it("when currentQuestion is empty render <div></div>", function () {
-    let wrapper = shallow(<CategoryPage router={{}}/>);
+    let wrapper = customShallow([undefined]);
 
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);
   });
 
   it("Player answer fail", function () {
-    let wrapper = mount();
-    let answerFail =  getAnswerFailDom(wrapper, questionStub);
+    let wrapper = customShallow([questionStubStandard]);
+    let answerFail =  getAnswerFailDom(wrapper, questionStubStandard);
 
     answerFail.simulate('click');
 
     let modal = wrapper.find("#modal");
     expect(modal.hasClass("hidden")).toBe(false);
     expect(modal.find("h2").text()).toBe("Te equivocaste");
-    expect(modal.find("h3").text()).toBe(questionStub.correctAnswer);
+    expect(modal.find("h3").text()).toBe(questionStubStandard.correctAnswer);
     expect(wrapper.state().isSuccess).toBe(false);
   });
 
   it("Player answer success", function () {
-    let wrapper = mount();
-    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+    let wrapper = customShallow([questionStubStandard]);
+    let answerSuccess =  findContainsText(wrapper, questionStubStandard.correctAnswer);
 
     answerSuccess.simulate('click');
 
@@ -63,7 +62,7 @@ describe("<CategoryPage/>", () =>{
 
   it("Player answer fail and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = customShallow(questionsStub);
     let answerFail =  getAnswerFailDom(wrapper, questionsStub[0]);
 
     answerFail.simulate('click');
@@ -79,7 +78,7 @@ describe("<CategoryPage/>", () =>{
 
   it("questionsLevel finish return start", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",2);
-    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = customShallow(questionsStub);
     wrapper.setProps({ questionsLevel: questionsStub});
 
     let answerFail1 =  getAnswerFailDom(wrapper, questionsStub[0]);
@@ -95,9 +94,9 @@ describe("<CategoryPage/>", () =>{
 
   it("Player answer success and continue", function () {
     let questionsStub = UtilStub.getQuestionsFor("Pastoreo y Cereal 2",3);
-    let wrapper = shallow(<CategoryPage questionsCategory={questionsStub} router={{}}/>);
+    let wrapper = customShallow(questionsStub);
     wrapper.setProps({ questionsLevel: questionsStub});
-    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+    let answerSuccess =  findContainsText(wrapper, questionStubStandard.correctAnswer);
 
     answerSuccess.simulate('click');
     simulateClickModal(wrapper);
@@ -110,10 +109,10 @@ describe("<CategoryPage/>", () =>{
   });
 
   it("Player winner level", function () {
-    const category = serverContentStub.categories.filter((category) => (category.name === questionStub.category))[0];
+    const category = serverContentStub.categories.filter((category) => (category.name === questionStubStandard.category))[0];
     let routeMock = null;
     let propsStub = {
-      questionsCategory: [questionStub],
+      questionsCategory: [questionStubStandard],
       category : category,
       user:{
         categoriesComplete:[]
@@ -125,7 +124,7 @@ describe("<CategoryPage/>", () =>{
       }};
     let wrapper = shallow(<CategoryPage {...propsStub}/>);
 
-    let answerSuccess =  findContainsText(wrapper, questionStub.correctAnswer);
+    let answerSuccess =  findContainsText(wrapper, questionStubStandard.correctAnswer);
     answerSuccess.simulate('click');
     simulateClickModal(wrapper);
 
@@ -141,8 +140,8 @@ function simulateClickModal(wrapper) {
 
 function getAnswerFailDom(wrapper, questionStub){
   let answerFail = returnAnswerFail(questionStub);
-  let answerReact = findContainsText(wrapper, answerFail);
-  return answerReact;
+  let answerFailReact = findContainsText(wrapper, answerFail);
+  return answerFailReact;
 }
 
 function findContainsText(wrapper, answer) {

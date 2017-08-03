@@ -14,7 +14,7 @@ describe("<PageSelector />", () => {
       }
     });
 
-    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
+    let wrapper = shallow(<PageSelector user={{}} content={serverContentStub} />);
     let levelPageItem = wrapper.find({id: 'levelsMount'});
     expect(levelPageItem.children().length).toBe(levels.length);
   });
@@ -22,7 +22,7 @@ describe("<PageSelector />", () => {
   it("render CategoryPage item for category", function () {
     let categories  = serverContentStub.categories;
 
-    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
+    let wrapper = shallow(<PageSelector user={{}} content={serverContentStub}/>);
 
     categories.forEach((category) => {
       let levelContainer = wrapper.find({id: category.name});
@@ -34,7 +34,7 @@ describe("<PageSelector />", () => {
     let firstCategory = "Pastoreo y Cereal 1";
     let secondCategory = "Pastoreo y Cereal 2";
 
-    let wrapper = shallow(<PageSelector content={serverContentStub}/>);
+    let wrapper = shallow(<PageSelector user={{}} content={serverContentStub}/>);
     let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),firstCategory,"h4");
     let linkCategoryNotAllowed = findContainsTagWithText(wrapper.find(Link),secondCategory,"h4");
 
