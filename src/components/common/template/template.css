@@ -1,0 +1,51 @@
+:root{
+  --light-blue: #79ecf2;
+  --red: #FF665f;
+}
+
+.audio-toggler{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--red);
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.top-bar{
+  background-color: var(--light-blue);
+  height: 70px;
+}
+
+
+.center-icon{
+  padding: 2px 2px;
+}
+
+.unmuted::before {
+  content: url('../../../assets/icons/volume_up.svg');
+}
+
+.muted::before {
+  content: url('../../../assets/icons/volume_off.svg');
+}
+
+
+.angle-left-arrow::before{
+  content: '\2039';
+  font-size: 4em;
+}
+
+.angle-left-arrow{
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  margin-left: 15px;
+}
+
+.title-head{
+  width: 140px;
+  margin: 0 auto;
+}
