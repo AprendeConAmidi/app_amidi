@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as TurnOnOffMusicAction from '../../../actions/TurnOnOffMusicAction';
 import './head.css';
 
-class Head extends React.Component {
+export class Head extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
