@@ -7,7 +7,7 @@ class Head extends React.Component {
         super(props, context);
         this.state = {
           isMusic: true,
-          turnOnMusic:true
+          isTurnOnMusic:true
         };
 
         this.turnMusic = this.turnMusic.bind(this);
@@ -25,13 +25,13 @@ class Head extends React.Component {
   }
 
   toggleMusic(){
-    if(this.state.turnOnMusic) {
+    if(this.state.isTurnOnMusic) {
       this.setState(Object.assign({}, this.state, {isMusic: !this.state.isMusic}));
     }
   }
 
   turnMusic(){
-    this.setState(Object.assign({},this.state,{isMusic: !this.state.isMusic, turnOnMusic: !this.state.turnOnMusic}));
+    this.setState(Object.assign({},this.state,{isMusic: !this.state.isMusic, isTurnOnMusic: !this.state.isTurnOnMusic}));
   }
 
   componentDidMount() {
