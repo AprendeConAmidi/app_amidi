@@ -40,6 +40,19 @@ class Head extends React.Component {
       window.addEventListener("visibilitychange", this.toggleMusic);
   }
 
+  componentDidMount() {
+    if(this.state.isMusic) {
+      window.addEventListener("visibilitychange", this.toggleMusic);
+    }
+  }
+
+  componentWillUnmount() {
+    /*
+    if(this.state.isMusic) {
+      window.removeEventListener("beforeunload", this.toggleMusic,true);
+    }*/
+  }
+
   render() {
         return (
           <div>
