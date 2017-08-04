@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import { browserHistory } from 'react-router';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as TurnOnOffMusicAction from '../../../actions/TurnOnOffMusicAction';
 import './head.css';
 
 class Head extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-          isMusic: true,
-          isTurnOnMusic:true
+          isMusic: this.props.isTurnOnMusic,
+          isTurnOnMusic: this.props.isTurnOnMusic
         };
 
         this.turnMusic = this.turnMusic.bind(this);
@@ -31,11 +34,19 @@ class Head extends React.Component {
   }
 
   turnMusic(){
-    this.setState(Object.assign({},this.state,{isMusic: !this.state.isMusic, isTurnOnMusic: !this.state.isTurnOnMusic}));
+    this.props.actions.turnOffOnMusicAction(!this.state.isTurnOnMusic);
   }
 
   componentDidMount() {
       window.addEventListener("visibilitychange", this.toggleMusic);
+  }
+
+  componentWillReceiveProps(nextProps){
+    let newState = {
+      isMusic: nextProps.isTurnOnMusic,
+      isTurnOnMusic: nextProps.isTurnOnMusic
+    };
+    this.setState(Object.assign({}, this.state, newState));
   }
 
   render() {
@@ -56,4 +67,22 @@ class Head extends React.Component {
     }
 }
 
-export default Head;
+Head.propTypes = {
+  isTurnOnMusic: PropTypes.bool.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    isTurnOnMusic: state.isTurnOnMusic,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(TurnOnOffMusicAction, dispatch)
+  };
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Head);

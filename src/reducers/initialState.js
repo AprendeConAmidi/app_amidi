@@ -5,5 +5,6 @@ export default {
   },
   user:{
     categoriesComplete:[]
-  }
+  },
+  isTurnOnMusic: true
 };
