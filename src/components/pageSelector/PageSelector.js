@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import  * as routesPath from "../../routePaths";
 import "./pageSelector.css";
-import Template from "../common/template/Template";
+import Head from "../common/head/Head";
 
 const imagesCategories = importAll(() =>(require.context('../../assets/categories', false, /\.(png|jpe?g|svg)$/)));
 
-export class PageSelector extends Template{
+export class PageSelector extends React.Component{
 
   constructor(props, context) {
     super(props, context);
@@ -81,9 +81,10 @@ export class PageSelector extends Template{
     );
   }
 
-  renderChildren() {
+  render() {
     return (
       <div >
+        <Head/>
         <h1 className="title">El Libro De La Historia Canaria</h1>
         <div id="levelsMount">{this.mountLevels()}</div>
       </div>

@@ -1,21 +1,18 @@
 import React from 'react';
-import './template.css';
-class Template extends React.Component {
+import './head.css';
+class Head extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.state = {isMusic: true};
 
         this.renderChildren = this.renderChildren.bind(this);
         this.toggleMusic = this.toggleMusic.bind(this);
     }
 
-  renderChildren() {/* pattern template */}
+  renderChildren() {/* pattern head */}
 
 
   getMusic(){
-      if(this.state.isMusic === undefined){
-        this.toggleMusic();
-      }
-
     if(this.state.isMusic){
       return(
         <audio id="audio-bg" preload="auto" autoPlay loop >
@@ -42,10 +39,9 @@ class Template extends React.Component {
                   <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.toggleMusic}/>
               </div>
             </div>
-            <div id="children">{this.renderChildren()}</div>
           </div>
         );
     }
 }
 
-export default Template;
+export default Head;
