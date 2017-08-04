@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import './head.css';
 
 class Head extends React.Component {
@@ -43,7 +44,7 @@ class Head extends React.Component {
             <div>
               {this.getMusic()}
               <div className="top-bar">
-                  <div className="angle-left-arrow"/>
+                  <div className="angle-left-arrow" onClick={browserHistory.goBack}/>
                   <div className="title-head">
                     <img style={{width: "140px"}} src="../assets/logo.png" alt="Amidi logo"/>
                   </div>
