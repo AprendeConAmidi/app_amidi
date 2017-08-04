@@ -3,9 +3,13 @@ import './head.css';
 class Head extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {isMusic: true};
+        this.state = {
+          isMusic: true,
+          turnOnMusic:true
+        };
 
         this.renderChildren = this.renderChildren.bind(this);
+        this.turnMusic = this.turnMusic.bind(this);
         this.toggleMusic = this.toggleMusic.bind(this);
     }
 
@@ -23,7 +27,17 @@ class Head extends React.Component {
   }
 
   toggleMusic(){
-    this.setState(Object.assign({},this.state,{isMusic: !this.state.isMusic}));
+    if(this.state.turnOnMusic) {
+      this.setState(Object.assign({}, this.state, {isMusic: !this.state.isMusic}));
+    }
+  }
+
+  turnMusic(){
+    this.setState(Object.assign({},this.state,{isMusic: !this.state.isMusic, turnOnMusic: !this.state.turnOnMusic}));
+  }
+
+  componentDidMount() {
+      window.addEventListener("visibilitychange", this.toggleMusic);
   }
 
   render() {
@@ -36,7 +50,7 @@ class Head extends React.Component {
                   <div className="title-head">
                     <img style={{width: "140px"}} src="../assets/logo.png" alt="Amidi logo"/>
                   </div>
-                  <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.toggleMusic}/>
+                  <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.turnMusic}/>
               </div>
             </div>
           </div>
