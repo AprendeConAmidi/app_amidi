@@ -28,7 +28,7 @@ describe("<CategoryPage/>", () =>{
   });
 
   it("when currentQuestion is empty render <div></div>", function () {
-    let wrapper = customShallow([undefined]);
+    let wrapper = customShallow([undefined]).find("#children").children();
 
     expect(wrapper.length).toBe(1);
     expect(wrapper.find("div").length).toBe(1);

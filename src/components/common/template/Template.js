@@ -24,7 +24,7 @@ class Template extends React.Component {
                   <div className="audio-toggler center-icon muted"/>
               </div>
             </div>
-            <div>{this.renderChildren()}</div>
+            <div id="children">{this.renderChildren()}</div>
           </div>
         );
     }
