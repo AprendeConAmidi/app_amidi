@@ -1,5 +1,6 @@
 import React from 'react';
 import './head.css';
+
 class Head extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -8,13 +9,9 @@ class Head extends React.Component {
           turnOnMusic:true
         };
 
-        this.renderChildren = this.renderChildren.bind(this);
         this.turnMusic = this.turnMusic.bind(this);
         this.toggleMusic = this.toggleMusic.bind(this);
     }
-
-  renderChildren() {/* pattern head */}
-
 
   getMusic(){
     if(this.state.isMusic){
@@ -38,19 +35,6 @@ class Head extends React.Component {
 
   componentDidMount() {
       window.addEventListener("visibilitychange", this.toggleMusic);
-  }
-
-  componentDidMount() {
-    if(this.state.isMusic) {
-      window.addEventListener("visibilitychange", this.toggleMusic);
-    }
-  }
-
-  componentWillUnmount() {
-    /*
-    if(this.state.isMusic) {
-      window.removeEventListener("beforeunload", this.toggleMusic,true);
-    }*/
   }
 
   render() {
