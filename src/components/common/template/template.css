@@ -9,7 +9,7 @@
   border-radius: 50%;
   background-color: var(--red);
   float: right;
-  margin-top: 15px;
+  margin-top: -40px;
   margin-right: 15px;
   cursor: pointer;
 }
@@ -17,6 +17,7 @@
 .top-bar{
   background-color: var(--light-blue);
   height: 70px;
+  border-bottom: solid;
 }
 
 
@@ -43,9 +44,11 @@
   cursor: pointer;
   float: left;
   margin-left: 15px;
+  margin-top: -5px;
 }
 
 .title-head{
   width: 140px;
   margin: 0 auto;
+  padding-top: 10px;
 }
