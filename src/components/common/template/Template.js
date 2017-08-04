@@ -8,9 +8,6 @@ class Template extends React.Component {
 
   renderChildren() {/* pattern template */}
 
-
-
-
   render() {
         return (
           <div>

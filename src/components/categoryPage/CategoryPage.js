@@ -5,9 +5,10 @@ import ManagerQuiz from './ManagerQuiz';
 import * as CategoryAction from '../../actions/CategoryAction';
 import "./CategoryPage-styles.css";
 import  * as routesPath from "../../routePaths";
+import Template from "../common/template/Template";
 
 const managerQuiz = new ManagerQuiz();
-export class CategoryPage extends React.Component {
+export class CategoryPage extends Template {
 
   constructor(props, context) {
     super(props, context);
@@ -93,7 +94,7 @@ export class CategoryPage extends React.Component {
     }
   }
 
-  render(){
+  renderChildren(){
     if(this.state.currentQuestion) {
       return (
         <div className="text-center">
