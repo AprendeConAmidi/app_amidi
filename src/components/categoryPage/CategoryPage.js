@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
-import * as CategoryAction from '../../actions/CategoryAction';
+import * as UserAction from '../../actions/UserAction';
 import "./CategoryPage-styles.css";
 import  * as routesPath from "../../routePaths";
 import Head from "../common/head/Head";
@@ -151,7 +151,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-     actions: bindActionCreators(CategoryAction, dispatch)
+     actions: bindActionCreators(UserAction, dispatch)
   };
 }
 
