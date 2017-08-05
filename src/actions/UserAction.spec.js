@@ -6,6 +6,10 @@ import * as UserAction from './UserAction';
 
 
 describe("UserAction", () =>{
+  beforeEach(function () {
+    localStorage.clear();
+  });
+
   it('update user through of categoryAction',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
     let userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};
@@ -24,4 +28,15 @@ describe("UserAction", () =>{
 
     expect(userStub.categoriesComplete[0]).toEqual(JSON.parse(localStorage.getItem("USER")).categoriesComplete[0]);
   });
+
+  it('when there aren´t user in localStorage return {}',async () =>{
+    const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+
+    const action = UserAction.loadUserAction();
+    await store.dispatch(action);
+    let userLoad = store.getState().user;
+
+    expect({}).toEqual(userLoad);
+  });
+
 });

@@ -3,7 +3,8 @@ export default function UtilLocalStorage() {
 
   this.loadUser = function(){
     return new Promise((resolve) => {
-    resolve(get(USER));
+      let user = get(USER);
+      resolve(user === undefined ? {} : user);
   });};
 
   this.saveUser = function(user){
