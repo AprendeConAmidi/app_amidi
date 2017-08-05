@@ -15,6 +15,7 @@ describe("UserAction", () =>{
     let user = store.getState().user;
     expect(userStub.categoriesComplete[0]).toEqual(user.categoriesComplete[0]);
   });
+
   it('save user in localStorage',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
     let userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};

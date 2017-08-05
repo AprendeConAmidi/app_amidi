@@ -14,4 +14,17 @@ export function saveCategoryAction(user) {
   };
 }
 
+export function loadUserAction() {
+  return function (dispatch) {
+    return data.loadUser().then(user => {
+      dispatch({
+          type: type.UPDATE_USER,
+          user: user,
+        }
+      );
+    }).catch(error => {
+      throw (error);
+    });
+  };
+}
 
