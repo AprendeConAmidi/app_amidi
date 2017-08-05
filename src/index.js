@@ -4,6 +4,7 @@ import {browserHistory} from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 import {LoadContentAction} from './actions/LoadContentAction';
+import {loadUserAction} from './actions/UserAction';
 
 import configureStore from './store/configureStore';
 
@@ -17,6 +18,7 @@ require('./assets/img/amidi.png');
 
 const store = configureStore();
 store.dispatch(LoadContentAction());
+store.dispatch(loadUserAction());
 
 
 //Create an enhanced history that syncs navigation events with the store
