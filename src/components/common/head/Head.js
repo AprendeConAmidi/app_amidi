@@ -55,7 +55,7 @@ export class Head extends React.Component {
             <div>
               {this.getMusic()}
               <div className="top-bar">
-                  <div className="angle-left-arrow" onClick={browserHistory.goBack}/>
+                  <div className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={browserHistory.goBack}/>
                   <div className="title-head">
                     <img style={{width: "140px"}} src="../assets/logo.png" alt="Amidi logo"/>
                   </div>
@@ -69,6 +69,7 @@ export class Head extends React.Component {
 
 Head.propTypes = {
   isTurnOnMusic: PropTypes.bool.isRequired,
+  isMenu: PropTypes.bool.isRequired,
   actions: PropTypes.object.isRequired
 };
 

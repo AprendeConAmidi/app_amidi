@@ -41,10 +41,24 @@
 
 .angle-left-arrow{
   color: #fff;
+  margin-top: -5px;
+}
+
+
+
+.btn-menu::before{
+  content: url('../../../assets/icons/menu.svg');
+}
+
+.btn-menu{
+  margin-top: 20px;
+}
+
+
+.btn-head-left{
   cursor: pointer;
   float: left;
   margin-left: 15px;
-  margin-top: -5px;
 }
 
 .title-head{

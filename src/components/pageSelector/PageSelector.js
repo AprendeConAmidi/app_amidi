@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import  * as routesPath from "../../routePaths";
 import "./pageSelector.css";
-import Head from "../common/head/Head";
+import HeadConnect from "../common/head/Head";
 
 const imagesCategories = importAll(() =>(require.context('../../assets/categories', false, /\.(png|jpe?g|svg)$/)));
 
@@ -84,7 +84,7 @@ export class PageSelector extends React.Component{
   render() {
     return (
       <div >
-        <Head/>
+        <HeadConnect isMenu={true}/>
         <h1 className="title">El Libro De La Historia Canaria</h1>
         <div id="levelsMount">{this.mountLevels()}</div>
       </div>
