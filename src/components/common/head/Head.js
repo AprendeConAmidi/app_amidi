@@ -69,7 +69,7 @@ export class Head extends React.Component {
 
 Head.propTypes = {
   isTurnOnMusic: PropTypes.bool.isRequired,
-  isMenu: PropTypes.bool.isRequired,
+  isMenu: PropTypes.bool,
   actions: PropTypes.object.isRequired
 };
 
