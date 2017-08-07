@@ -5,7 +5,7 @@ import ManagerQuiz from './ManagerQuiz';
 import * as UserAction from '../../actions/UserAction';
 import "./CategoryPage-styles.css";
 import  * as routesPath from "../../routePaths";
-import Head from "../common/head/Head";
+import HeadConnect from "../common/head/Head";
 
 const managerQuiz = new ManagerQuiz();
 export class CategoryPage extends React.Component {
@@ -77,7 +77,7 @@ export class CategoryPage extends React.Component {
       let updateUser = {
         categoriesComplete:categoriesComplete
       };
-      this.props.actions.saveCategoryAction(Object.assign({},this.props.user,updateUser));
+      this.props.actions.saveUserAction(Object.assign({},this.props.user,updateUser));
     }
     this.props.router.push(routesPath.WINNER);
   }
@@ -98,7 +98,7 @@ export class CategoryPage extends React.Component {
     if(this.state.currentQuestion) {
       return (
         <div className="text-center">
-          <Head/>
+          <HeadConnect/>
           <h4>{this.state.currentQuestion.question}</h4>
           <ul>
             {this.state.currentQuestion.answers.map((answer) =>
