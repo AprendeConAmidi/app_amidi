@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import {serverContentStub}  from "../../api/StubApi/ServerApiStub";
 import {Link} from "react-router";
+import initialState from "../../reducers/initialState";
 import {PageSelector} from "./PageSelector";
 
 
@@ -44,11 +45,14 @@ describe("<PageSelector />", () => {
 
 
   it("user when finish level access to new Level", function () {
-    let userStub = {
-      categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]
+    let propsStub = {
+      user: {
+        categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]
+      }
     };
 
-    let wrapper = shallow(<PageSelector user={userStub} content={serverContentStub}/>);
+    let wrapper = shallow(<PageSelector user={initialState} content={serverContentStub}/>);
+    wrapper.setProps(propsStub);
 
     let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 1","h4");
     let linkCategoryNewAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 2","h4");

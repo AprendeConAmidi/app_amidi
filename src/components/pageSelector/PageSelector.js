@@ -25,7 +25,8 @@ export class PageSelector extends React.Component{
     let newState = {
       questions: nextProps.content.questions,
       categories: nextProps.content.categories,
-      levels: this.getLevels(nextProps.content.categories)
+      levels: this.getLevels(nextProps.content.categories),
+      user: nextProps.user
     };
     this.setState(Object.assign({},this.state, newState));
   }

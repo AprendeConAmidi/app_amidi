@@ -11,6 +11,10 @@ export default function UtilLocalStorage() {
     return set(USER,user);
   };
 
+  this.removeUser = function(){
+    return remove(USER);
+  };
+
   function set(itemName, item){
     if (typeof item === "object") {
       localStorage.setItem(itemName, JSON.stringify(item));
@@ -35,9 +39,7 @@ export default function UtilLocalStorage() {
     return item.charAt(0) === '{' && item.charAt(item.length-1) === '}';
   }
 
-  /*
-   remove(itemName){
+  function remove(itemName){
    localStorage.removeItem(itemName);
-   }
-   */
+  }
 }

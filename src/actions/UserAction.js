@@ -1,4 +1,5 @@
 import * as type from './actionTypes';
+import initialState from '../reducers/initialState';
 import UtilLocalStorage from '../utils/UtilLocalStorage';
 
 const data = new UtilLocalStorage();
@@ -8,7 +9,7 @@ export function saveUserAction(user) {
   return function (dispatch) {
     dispatch({
         type: type.UPDATE_USER,
-        user: user,
+        user: user
       }
     );
   };
@@ -19,10 +20,21 @@ export function loadUserAction() {
     return data.loadUser().then(user => {
       dispatch({
           type: type.UPDATE_USER,
-          user: user,
+          user: user
         }
       );
     });
+  };
+}
+
+export function removeUserAction() {
+  data.removeUser();
+  return function (dispatch) {
+    dispatch({
+        type: type.UPDATE_USER,
+        user: initialState.user
+      }
+    );
   };
 }
 

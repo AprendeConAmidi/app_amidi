@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as TurnOnOffMusicAction from '../../../actions/TurnOnOffMusicAction';
+import * as UserAction from '../../../actions/UserAction';
 import './head.css';
 
 export class Head extends React.Component {
@@ -17,6 +18,7 @@ export class Head extends React.Component {
       this.toggleMenuElement = this.toggleMenuElement.bind(this);
       this.turnMusic = this.turnMusic.bind(this);
       this.toggleMusic = this.toggleMusic.bind(this);
+      this.aaaaaa = this.aaaaaa.bind(this);
     }
 
   componentDidMount() {
@@ -56,8 +58,13 @@ export class Head extends React.Component {
   }
 
   toggleMenuElement(event){
-    if(event.currentTarget === event.target){this.toggle()}
+    if(event.currentTarget === event.target){this.toggle();}
   }
+
+  aaaaaa(){
+    console.log("ssssssssssssssssss");
+    this.props.actions.removeUserAction();
+}
 
   render() {
         return (
@@ -76,7 +83,7 @@ export class Head extends React.Component {
                  onClick={this.toggleMenu}>
               <div className="drawer-panel panel"
                    style={this.state.isHidden ? {left: "-1000px"} :{left: "0%"}}>
-                <div className="delete-progress">
+                <div className="delete-progress" onClick={this.aaaaaa}>
                   <div className="trash"/>
                   <div className="delete-progress-font">borrar progreso</div>
                 </div>
@@ -101,9 +108,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TurnOnOffMusicAction, dispatch)
+    actions: bindActionCreators(Object.assign(TurnOnOffMusicAction, UserAction), dispatch)
   };
 }
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(Head);

@@ -6,13 +6,14 @@ import * as UserAction from './UserAction';
 
 
 describe("UserAction", () =>{
+  const userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};
+
   beforeEach(function () {
     localStorage.clear();
   });
 
   it('update user through of categoryAction',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
-    let userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};
     const action = UserAction.saveUserAction(userStub);
     await store.dispatch(action);
 
@@ -22,7 +23,6 @@ describe("UserAction", () =>{
 
   it('save user in localStorage',async () =>{
     const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
-    let userStub = {categoriesComplete:[{name: "Pastoreo y Cereal 1", level:'1'}]};
     const action = UserAction.saveUserAction(userStub);
     await store.dispatch(action);
 
@@ -39,4 +39,14 @@ describe("UserAction", () =>{
     expect({}).toEqual(userLoad);
   });
 
+  it('remove user in localStorage',async () =>{
+    localStorage.setItem("USER", userStub);
+    const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+
+    const action = UserAction.removeUserAction();
+    await store.dispatch(action);
+    let userRemove = store.getState().user;
+
+    expect(initialState.user).toEqual(userRemove);
+  });
 });
