@@ -5,12 +5,12 @@ import initialState from '../src/reducers/initialState';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import {mount} from 'enzyme';
-import Head from "../src/components/common/head/Head";
+import HeadConnect from "../src/components/common/head/Head";
 
 it('change isTurnOnMusic thought of the store',async () =>{
   const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
 
-  let wrapper = mount(<Provider store={store}><Head/></Provider>);
+  let wrapper = mount(<Provider store={store}><HeadConnect/></Provider>);
 
   let audioToogler = wrapper.find(".audio-toggler");
   audioToogler.simulate('click');

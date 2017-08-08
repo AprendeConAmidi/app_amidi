@@ -5,6 +5,9 @@ import {bindActionCreators} from 'redux';
 import * as TurnOnOffMusicAction from '../../../actions/TurnOnOffMusicAction';
 import * as UserAction from '../../../actions/UserAction';
 import './head.css';
+import soundBackgroundOgg from '../../../assets/audio/amidi-background.ogg';
+import soundBackgroundMp3 from '../../../assets/audio/amidi-background.mp3';
+import imgLogoAmidi from '../../../assets/logo.png';
 
 export class Head extends React.Component {
     constructor(props, context) {
@@ -36,8 +39,8 @@ export class Head extends React.Component {
     if(this.state.isMusic){
       return(
         <audio id="audio-bg" preload="auto" autoPlay loop >
-          <source src="../assets/audio/amidi-background.mp3"/>
-          <source src="../assets/audio/amidi-background.ogg"/>
+          <source src={soundBackgroundMp3}/>
+          <source src={soundBackgroundOgg}/>
         </audio>);
     }
   }
@@ -68,7 +71,7 @@ export class Head extends React.Component {
               <div className="top-bar">
                   <div id="btn-menu" className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={this.props.isMenu ? this.toggleMenu : browserHistory.goBack}/>
                   <div className="title-head">
-                    <img style={{width: "140px"}} src="../assets/logo.png" alt="Amidi logo"/>
+                    <img style={{width: "140px"}} src={imgLogoAmidi} alt="Amidi logo"/>
                   </div>
                   <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.turnMusic}/>
               </div>

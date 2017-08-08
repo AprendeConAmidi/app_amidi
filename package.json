@@ -104,8 +104,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy",
-      "^.+\\.(gif|ttf|eot|svg|woff|woff2|ico)$": "<rootDir>/tools/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|ogg|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
     },
     "setupFiles": ["jest-localstorage-mock"]
   },

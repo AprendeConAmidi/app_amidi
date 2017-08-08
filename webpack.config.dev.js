@@ -51,6 +51,7 @@ export default {
   ],
   module: {
     rules: [
+      {test: /\.(ogg|mp3)$/, include: /src/, loader: 'file-loader'},
       {test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel-loader']},
       {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
       {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
