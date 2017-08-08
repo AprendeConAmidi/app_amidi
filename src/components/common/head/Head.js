@@ -7,24 +7,20 @@ import './head.css';
 
 export class Head extends React.Component {
     constructor(props, context) {
-        super(props, context);
-        this.state = {
-          isMusic: this.props.isTurnOnMusic,
-          isTurnOnMusic: this.props.isTurnOnMusic
-        };
-
-        this.turnMusic = this.turnMusic.bind(this);
-        this.toggleMusic = this.toggleMusic.bind(this);
+      super(props, context);
+      this.state = {
+        isMusic: this.props.isTurnOnMusic,
+        isTurnOnMusic: this.props.isTurnOnMusic,
+        isHidden: true
+      };
+      this.toggleMenu = this.toggleMenu.bind(this);
+      this.toggleMenuElement = this.toggleMenuElement.bind(this);
+      this.turnMusic = this.turnMusic.bind(this);
+      this.toggleMusic = this.toggleMusic.bind(this);
     }
 
-  getMusic(){
-    if(this.state.isMusic){
-      return(
-        <audio id="audio-bg" preload="auto" autoPlay loop >
-          <source src="../assets/audio/amidi-background.mp3"/>
-          <source src="../assets/audio/amidi-background.ogg"/>
-        </audio>);
-    }
+  toggleMenuElement(event){
+    if(event.currentTarget === event.target){this.toggle()}
   }
 
   toggleMusic(){
@@ -41,6 +37,16 @@ export class Head extends React.Component {
       window.addEventListener("visibilitychange", this.toggleMusic);
   }
 
+  getMusic(){
+    if(this.state.isMusic){
+      return(
+        <audio id="audio-bg" preload="auto" autoPlay loop >
+          <source src="../assets/audio/amidi-background.mp3"/>
+          <source src="../assets/audio/amidi-background.ogg"/>
+        </audio>);
+    }
+  }
+
   componentWillReceiveProps(nextProps){
     let newState = {
       isMusic: nextProps.isTurnOnMusic,
@@ -49,18 +55,27 @@ export class Head extends React.Component {
     this.setState(Object.assign({}, this.state, newState));
   }
 
+  toggleMenu(){
+    this.setState(Object.assign({}, this.state, {isHidden: !this.state.isHidden}));
+  }
+
   render() {
         return (
           <div>
             <div>
               {this.getMusic()}
               <div className="top-bar">
-                  <div className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={browserHistory.goBack}/>
+                  <div id="btn-menu" className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={this.props.isMenu ? this.toggleMenu : browserHistory.goBack}/>
                   <div className="title-head">
                     <img style={{width: "140px"}} src="../assets/logo.png" alt="Amidi logo"/>
                   </div>
                   <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.turnMusic}/>
               </div>
+            </div>
+            <div id="drawer" className={this.state.isHidden ? "" : "background-drawer"}
+                 onClick={this.toggleMenu}>
+              <div className="drawer-panel panel"
+                   style={this.state.isHidden ? {left: "-1000px"} :{left: "-25%" }}/>
             </div>
           </div>
         );
