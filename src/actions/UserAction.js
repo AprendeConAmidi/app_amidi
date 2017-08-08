@@ -22,8 +22,6 @@ export function loadUserAction() {
           user: user,
         }
       );
-    }).catch(error => {
-      throw (error);
     });
   };
 }
