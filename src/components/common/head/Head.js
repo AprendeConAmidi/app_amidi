@@ -18,7 +18,6 @@ export class Head extends React.Component {
       this.toggleMenuElement = this.toggleMenuElement.bind(this);
       this.turnMusic = this.turnMusic.bind(this);
       this.toggleMusic = this.toggleMusic.bind(this);
-      this.aaaaaa = this.aaaaaa.bind(this);
     }
 
   componentDidMount() {
@@ -61,11 +60,6 @@ export class Head extends React.Component {
     if(event.currentTarget === event.target){this.toggle();}
   }
 
-  aaaaaa(){
-    console.log("ssssssssssssssssss");
-    this.props.actions.removeUserAction();
-}
-
   render() {
         return (
           <div>
@@ -83,7 +77,7 @@ export class Head extends React.Component {
                  onClick={this.toggleMenu}>
               <div className="drawer-panel panel"
                    style={this.state.isHidden ? {left: "-1000px"} :{left: "0%"}}>
-                <div className="delete-progress" onClick={this.aaaaaa}>
+                <div className="delete-progress" onClick={this.props.actions.removeUserAction}>
                   <div className="trash"/>
                   <div className="delete-progress-font">borrar progreso</div>
                 </div>
