@@ -19,18 +19,16 @@ export class Head extends React.Component {
       this.toggleMusic = this.toggleMusic.bind(this);
     }
 
-  toggleMusic(){
-    if(this.state.isTurnOnMusic) {
-      this.setState(Object.assign({}, this.state, {isMusic: !this.state.isMusic}));
-    }
-  }
-
-  turnMusic(){
-    this.props.actions.turnOffOnMusicAction(!this.state.isTurnOnMusic);
-  }
-
   componentDidMount() {
       window.addEventListener("visibilitychange", this.toggleMusic);
+  }
+
+  componentWillReceiveProps(nextProps){
+    let newState = {
+      isMusic: nextProps.isTurnOnMusic,
+      isTurnOnMusic: nextProps.isTurnOnMusic
+    };
+    this.setState(Object.assign({}, this.state, newState));
   }
 
   getMusic(){
@@ -43,12 +41,14 @@ export class Head extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    let newState = {
-      isMusic: nextProps.isTurnOnMusic,
-      isTurnOnMusic: nextProps.isTurnOnMusic
-    };
-    this.setState(Object.assign({}, this.state, newState));
+  turnMusic(){
+    this.props.actions.turnOffOnMusicAction(!this.state.isTurnOnMusic);
+  }
+
+  toggleMusic(){
+    if(this.state.isTurnOnMusic) {
+      this.setState(Object.assign({}, this.state, {isMusic: !this.state.isMusic}));
+    }
   }
 
   toggleMenu(){

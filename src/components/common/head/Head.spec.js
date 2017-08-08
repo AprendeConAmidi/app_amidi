@@ -87,5 +87,4 @@ describe("<HeadConnect />", () => {
       expect(sidePanel.hasClass('background-drawer')).toBe(false);
     });
   });
-
 });
