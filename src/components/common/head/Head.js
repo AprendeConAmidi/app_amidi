@@ -19,10 +19,6 @@ export class Head extends React.Component {
       this.toggleMusic = this.toggleMusic.bind(this);
     }
 
-  toggleMenuElement(event){
-    if(event.currentTarget === event.target){this.toggle()}
-  }
-
   toggleMusic(){
     if(this.state.isTurnOnMusic) {
       this.setState(Object.assign({}, this.state, {isMusic: !this.state.isMusic}));
@@ -59,6 +55,10 @@ export class Head extends React.Component {
     this.setState(Object.assign({}, this.state, {isHidden: !this.state.isHidden}));
   }
 
+  toggleMenuElement(event){
+    if(event.currentTarget === event.target){this.toggle()}
+  }
+
   render() {
         return (
           <div>
@@ -75,7 +75,12 @@ export class Head extends React.Component {
             <div id="drawer" className={this.state.isHidden ? "" : "background-drawer"}
                  onClick={this.toggleMenu}>
               <div className="drawer-panel panel"
-                   style={this.state.isHidden ? {left: "-1000px"} :{left: "-25%" }}/>
+                   style={this.state.isHidden ? {left: "-1000px"} :{left: "0%"}}>
+                <div className="delete-progress">
+                  <div className="trash"/>
+                  <div className="delete-progress-font">borrar progreso</div>
+                </div>
+              </div>
             </div>
           </div>
         );
