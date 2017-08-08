@@ -6,13 +6,12 @@ const data = new UtilLocalStorage();
 
 export function saveUserAction(user) {
   data.saveUser(user);
-  return function (dispatch) {
-    dispatch({
-        type: type.UPDATE_USER,
-        user: user
-      }
-    );
-  };
+  return getActionUpdateUser(user);
+}
+
+export function removeUserAction() {
+  data.removeUser();
+  return getActionUpdateUser(initialState.user);
 }
 
 export function loadUserAction() {
@@ -27,12 +26,11 @@ export function loadUserAction() {
   };
 }
 
-export function removeUserAction() {
-  data.removeUser();
+function getActionUpdateUser(user) {
   return function (dispatch) {
     dispatch({
         type: type.UPDATE_USER,
-        user: initialState.user
+        user: user
       }
     );
   };
