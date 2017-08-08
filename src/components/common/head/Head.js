@@ -66,16 +66,16 @@ export class Head extends React.Component {
   render() {
         return (
           <div>
-            <div>
-              {this.getMusic()}
-              <div className="top-bar">
-                  <div id="btn-menu" className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={this.props.isMenu ? this.toggleMenu : browserHistory.goBack}/>
-                  <div className="title-head">
-                    <img style={{width: "140px"}} src={imgLogoAmidi} alt="Amidi logo"/>
-                  </div>
-                  <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.turnMusic}/>
-              </div>
+            {this.getMusic()}
+            <div className="container-top-bar">
+            <div className="top-bar">
+                <div id="btn-menu" className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={this.props.isMenu ? this.toggleMenu : browserHistory.goBack}/>
+                <div className="title-head">
+                  <img style={{width: "140px"}} src={imgLogoAmidi} alt="Amidi logo"/>
+                </div>
+                <div className={this.state.isMusic ? "audio-toggler center-icon unmuted" : "audio-toggler center-icon muted"}  onClick={this.turnMusic}/>
             </div>
+              </div>
             <div id="drawer" className={this.state.isHidden ? "" : "background-drawer"}
                  onClick={this.toggleMenu}>
               <div className="drawer-panel panel"

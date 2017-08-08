@@ -14,10 +14,18 @@
   cursor: pointer;
 }
 
+.container-top-bar{
+  margin-bottom: 80px;
+}
+
 .top-bar{
+  position: fixed;
   background-color: var(--light-blue);
   height: 70px;
+  width: 100%;
+  top: 0;
   border-bottom: solid;
+  z-index: 99;
 }
 
 .center-icon{  padding: 2px 2px;  }
