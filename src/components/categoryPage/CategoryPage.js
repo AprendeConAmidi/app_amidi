@@ -114,7 +114,7 @@ export class CategoryPage extends React.Component {
               </div>
               <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
               <button
-                className={this.state.isSuccess ? "btn-class btn-success" : "btn-class btn-fail"}
+                className={this.state.isSuccess ? "btn-class button-success" : "btn-class button-fail"}
                 onClick={this.updateCategory}>
                 Continuar
               </button>

@@ -91,9 +91,11 @@ li{
   color: var(--red-fail);
 }
 
-.btn-fail{  background: var(--red-fail);  }
+.button-fail{
+  background: var(--red-fail);
+}
 
-.btn-success{  background: var(--green-success);  }
+.button-success{  background: var(--green-success);  }
 
 .btn-class{
   border-radius: 5px;
