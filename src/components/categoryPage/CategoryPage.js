@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ManagerQuiz from './ManagerQuiz';
 import * as UserAction from '../../actions/UserAction';
-import "./CategoryPage-styles.css";
+import "./categoryPage.css";
 import  * as routesPath from "../../routePaths";
 import HeadConnect from "../common/head/Head";
 
