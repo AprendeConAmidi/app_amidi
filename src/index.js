@@ -15,6 +15,8 @@ import { syncHistoryWithStore } from  'react-router-redux';
 
 /*meta*/
 require('./assets/img/amidi.png');
+require('./assets/manifest.json');
+
 
 const store = configureStore();
 store.dispatch(LoadContentAction());
