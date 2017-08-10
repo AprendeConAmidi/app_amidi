@@ -7,10 +7,12 @@ import image_start from '../../assets/img/amidi_nubes.png';
 const Start = () => {
   return (
     <div className="background-red">
-      <img src={image_start} alt="Amidi" className="amidi"/>
-      <Link className="start" to={paths.SELECTOR_PAGE}>
-          <div className="start-btn">JUGAR</div>
-      </Link>
+      <div className="containerStart">
+        <img src={image_start} alt="Amidi" className="amidi"/>
+        <Link className="start" to={paths.SELECTOR_PAGE}>
+            <div className="start-btn">JUGAR</div>
+        </Link>
+      </div>
     </div>
   );
 };

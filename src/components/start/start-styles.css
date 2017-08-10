@@ -1,16 +1,26 @@
 .background-red{
   background-color: #FF665f;
-  height: 100%;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 10;
 }
 
+.containerStart{
+  position: fixed;
+  top: -10%;
+  height: 100%;
+  width: 100%;
+}
 
 .amidi{
-  max-width: 25vw;
-  margin: 0 auto 5%;
+  margin: 0 auto;
   display: block;
+  max-width: 100vw;
+  min-width: 240px;
+  width: auto;
+  height: 90%;
+  min-height: 320px;
+  max-height: 700px;
 }
 
 .start-btn{
@@ -19,20 +29,15 @@
   font-size: 1.2em;
   text-align: center;
   margin: 0 auto;
-  width: 10%;
+  min-width: 200px;
+  width: 30%;
+  max-width: 280px;
   border-radius: 30px;
   cursor: pointer;
 }
 
 .start{
   text-decoration: none;
-  color: #7256e8;
   font-weight: bolder;
 }
-
-.start-btn{
-  width: 15%;
-  min-width: 130px;
-}
-
 
