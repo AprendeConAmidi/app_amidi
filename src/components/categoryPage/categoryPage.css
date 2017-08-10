@@ -107,16 +107,16 @@ li{
   position: relative;
 }
 
-.modal-class{
+.dialog{
    content: "";
    position: fixed;
    z-index: 10;
    top: 0; left: 0; right: 0; bottom: 0;
 }
 
-/* Modal Dialog
+/*Dialog
  ---------------------- */
-.modal-dialog-class{
+.dialog-body{
    position: fixed;
    z-index: 11;
 
@@ -132,6 +132,6 @@ li{
    box-shadow: 10px 10px 5px #888888;
 }
 
-.modal-body-class{
+.dialog-content{
   padding: 0 10% var(--space);
 }

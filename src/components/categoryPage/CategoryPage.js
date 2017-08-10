@@ -107,9 +107,9 @@ export class CategoryPage extends React.Component {
               </li>
             )}
           </ul>
-          <div className={this.state.isShowModal ? "modal-class" : "hidden"} id="modal" aria-hidden="true">
-            <div className={this.state.isSuccess ? "modal-dialog-class success" : "modal-dialog-class fail"}>
-              <div className="modal-body-class">
+          <div className={this.state.isShowModal ? "dialog" : "hidden"} id="modal" aria-hidden="true">
+            <div className={this.state.isSuccess ? "dialog-body success" : "dialog-body fail"}>
+              <div className="dialog-content">
                 {this.getContentModal()}
               </div>
               <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
