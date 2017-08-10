@@ -6,6 +6,8 @@ import * as UserAction from '../../actions/UserAction';
 import "./categoryPage.css";
 import  * as routesPath from "../../routePaths";
 import HeadConnect from "../common/head/Head";
+import soundNegative from '../../../src/assets/audio/negative.mp3';
+import soundPositive from '../../../src/assets/audio/positive.mp3';
 
 const managerQuiz = new ManagerQuiz();
 export class CategoryPage extends React.Component {
@@ -19,6 +21,7 @@ export class CategoryPage extends React.Component {
       isShowModal: false,
       isSuccess: false,
     };
+    this.audio = new Audio;
 
     this.updateAnswer = this.updateAnswer.bind(this);
     this.updateCategory = this.updateCategory.bind(this);
@@ -38,6 +41,8 @@ export class CategoryPage extends React.Component {
 
   updateAnswer(answer){
     let isSuccess = (answer === this.state.currentQuestion.correctAnswer);
+    this.audio.src = isSuccess ? soundPositive : soundNegative;
+    this.audio.play();
     this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
 
