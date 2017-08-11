@@ -6,7 +6,7 @@ import * as TurnOnOffMusicAction from '../../../actions/TurnOnOffMusicAction';
 import * as UserAction from '../../../actions/UserAction';
 import './head.css';
 import soundBackgroundOgg from '../../../assets/audio/amidi-background.ogg';
-import soundBackgroundMp3 from '../../../assets/audio/amidi-background.mp3';
+// import soundBackgroundMp3 from '../../../assets/audio/amidi-background.mp3';
 import imgLogoAmidi from '../../../assets/logo.png';
 
 export class Head extends React.Component {
@@ -17,6 +17,11 @@ export class Head extends React.Component {
         isTurnOnMusic: this.props.isTurnOnMusic,
         isHidden: true
       };
+
+      this.audioBackground = new Audio;
+      this.audioBackground.src = soundBackgroundOgg;
+      this.audioBackground.loop = true;
+
       this.toggleMenu = this.toggleMenu.bind(this);
       this.toggleMenuElement = this.toggleMenuElement.bind(this);
       this.turnMusic = this.turnMusic.bind(this);
@@ -35,13 +40,11 @@ export class Head extends React.Component {
     this.setState(Object.assign({}, this.state, newState));
   }
 
-  getMusic(){
+  updateMusic(){
     if(this.state.isMusic){
-      return(
-        <audio id="audio-bg" preload="auto" autoPlay loop >
-          <source src={soundBackgroundMp3}/>
-          <source src={soundBackgroundOgg}/>
-        </audio>);
+      this.audioBackground.play();
+    }else{
+      this.audioBackground.pause();
     }
   }
 
@@ -66,7 +69,7 @@ export class Head extends React.Component {
   render() {
         return (
           <div>
-            {this.getMusic()}
+            {this.updateMusic()}
             <div className="container-top-bar">
             <div className="top-bar">
                 <div id="btn-menu" className={this.props.isMenu ?"btn-menu btn-head-left" : "angle-left-arrow btn-head-left"} onClick={this.props.isMenu ? this.toggleMenu : browserHistory.goBack}/>

@@ -6,8 +6,8 @@ import * as UserAction from '../../actions/UserAction';
 import "./categoryPage.css";
 import  * as routesPath from "../../routePaths";
 import HeadConnect from "../common/head/Head";
-import soundNegative from '../../../src/assets/audio/negative.mp3';
-import soundPositive from '../../../src/assets/audio/positive.mp3';
+import soundNegative from '../../../src/assets/audio/negative.ogg';
+import soundPositive from '../../../src/assets/audio/positive.ogg';
 
 const managerQuiz = new ManagerQuiz();
 export class CategoryPage extends React.Component {
