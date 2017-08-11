@@ -9,6 +9,10 @@ import soundBackgroundOgg from '../../../assets/audio/amidi-background.ogg';
 // import soundBackgroundMp3 from '../../../assets/audio/amidi-background.mp3';
 import imgLogoAmidi from '../../../assets/logo.png';
 
+//var audioBackground static path, problem multiples HEAD instances
+// eslint-disable-next-line
+var audioBackground;
+
 export class Head extends React.Component {
     constructor(props, context) {
       super(props, context);
@@ -17,15 +21,13 @@ export class Head extends React.Component {
         isTurnOnMusic: this.props.isTurnOnMusic,
         isHidden: true
       };
-
-      this.audioBackground = new Audio;
-      this.audioBackground.src = soundBackgroundOgg;
-      this.audioBackground.loop = true;
-
       this.toggleMenu = this.toggleMenu.bind(this);
       this.toggleMenuElement = this.toggleMenuElement.bind(this);
       this.turnMusic = this.turnMusic.bind(this);
       this.toggleMusic = this.toggleMusic.bind(this);
+      this.updateMusic = this.updateMusic.bind(this);
+
+      this.initAudioStatic();
     }
 
   componentDidMount() {
@@ -40,11 +42,19 @@ export class Head extends React.Component {
     this.setState(Object.assign({}, this.state, newState));
   }
 
+  initAudioStatic(){
+    if(!audioBackground) {
+      audioBackground = new Audio;
+      audioBackground.src = soundBackgroundOgg;
+      audioBackground.loop = true;
+    }
+  }
+
   updateMusic(){
     if(this.state.isMusic){
-      this.audioBackground.play();
+      audioBackground.play();
     }else{
-      this.audioBackground.pause();
+      audioBackground.pause();
     }
   }
 
