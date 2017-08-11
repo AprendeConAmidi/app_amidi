@@ -14,7 +14,6 @@ export class CategoryPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       questionsCategory: this.props.questionsCategory || [],
       currentQuestion: this.props.questionsCategory ? this.props.questionsCategory[0]:  null,
@@ -32,7 +31,6 @@ export class CategoryPage extends React.Component {
 
   componentWillReceiveProps(nextProps){
     let currentQuestion = this.state.currentQuestion;
-
     let newState = {
       questionsCategory: Object.assign([], nextProps.questionsCategory),
       currentQuestion: currentQuestion ? currentQuestion: nextProps.questionsCategory[0],
@@ -55,8 +53,7 @@ export class CategoryPage extends React.Component {
   }
 
   updateCategory() {
-    let indexCurrentQuestion =
-      this.state.questionsCategory.indexOf(this.state.currentQuestion);
+    let indexCurrentQuestion = this.state.questionsCategory.indexOf(this.state.currentQuestion);
     let indexNextQuestion = indexCurrentQuestion + 1 < this.state.questionsCategory.length
       ? indexCurrentQuestion + 1 : 0;
     let newQuestionCategory =
