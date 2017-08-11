@@ -21,12 +21,13 @@ export class CategoryPage extends React.Component {
       isShowModal: false,
       isSuccess: false,
     };
-    this.audio = new Audio;
-
     this.updateAnswer = this.updateAnswer.bind(this);
     this.updateCategory = this.updateCategory.bind(this);
     this.finishCategory = this.finishCategory.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.initAudio = this.initAudio.bind(this);
+
+    this.initAudio();
   }
 
   componentWillReceiveProps(nextProps){
@@ -39,10 +40,17 @@ export class CategoryPage extends React.Component {
     this.setState(Object.assign({}, this.state, newState));
   }
 
+  initAudio(){
+    this.audioSuccess = new Audio;
+    this.audioSuccess.src = soundPositive;
+    this.audioFail = new Audio;
+    this.audioFail.src = soundNegative;
+  }
+
   updateAnswer(answer){
     let isSuccess = (answer === this.state.currentQuestion.correctAnswer);
-    this.audio.src = isSuccess ? soundPositive : soundNegative;
-    this.audio.play();
+    let audio = isSuccess ? this.audioSuccess : this.audioFail;
+    audio.play();
     this.setState(Object.assign({}, this.state, {isShowModal: true}, {isSuccess:isSuccess}));
   }
 
