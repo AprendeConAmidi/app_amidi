@@ -28,21 +28,34 @@
 
 
 .level{
-  transform: translateX(0%);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.category a img{
+  margin: 20px auto 0;
+}
+
+.category a h4 {
   text-align: center;
-
-  padding-top: 2%;
+  padding: 0;
 }
 
-.category{
-  display: inline-table;
-  padding-left: 2%;
-  padding-right: 2%;
-}
 
 @media (max-width: 400px) {
-  .category{
-    width: 110px;
+ .category{
+   max-width:110px;
+ }
+
+  .category a img {
+  width: 110px;
+  height: auto;
+}
+}
+
+@media (max-width: 320px) {
+  .category a img{
+    width: 100px;
     height: auto;
   }
 }
