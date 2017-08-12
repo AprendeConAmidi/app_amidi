@@ -54,31 +54,15 @@ li{
 /* Modal
  ---------------------- */
 
-
-
-
 .success{
   border: var(--green-success) solid 1px;
-  background-color: #d1ffc1;
+  background-color: #ffffff;
   color: var(--green-success);
-}
-
-.hr-success{
-  border-bottom: 1px solid var(--green-success);
-  /*override boostrap */
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.hr-fail{
-  border-bottom: 1px solid var(--red-fail);
-  /*override boostrap */
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .fail{
   border: var(--red-fail) solid 1px;
-  background-color: #ffcfcc;
+  background-color: #ffffff;
   color: var(--red-fail);
 }
 
@@ -117,12 +101,11 @@ li{
    left: 50%;
    transform: translateX(-50%);
 
-   width: 35%;
    min-width: 200px;
    min-height: 50px;
 
    border-radius: 5px;
-   box-shadow: 10px 10px 5px #888888;
+   box-shadow: 10px 10px 5px rgba(50,50,50,0.5);
 }
 
 .dialog-content{

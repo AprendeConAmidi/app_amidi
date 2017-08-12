@@ -98,7 +98,7 @@ export class CategoryPage extends React.Component {
     }else{
       return (
         <div>
-          <h2>Te equivocaste</h2>
+          <h2>Fallaste</h2>
           <h3><strong>{this.state.currentQuestion.correctAnswer}</strong></h3>
         </div>);
     }
@@ -122,7 +122,6 @@ export class CategoryPage extends React.Component {
               <div className="dialog-content">
                 {this.getContentModal()}
               </div>
-              <hr className={this.state.isSuccess ? "hr-success" : "hr-fail"}/>
               <button
                 className={this.state.isSuccess ? "btn-class button-success" : "btn-class button-fail"}
                 onClick={this.updateCategory}>
