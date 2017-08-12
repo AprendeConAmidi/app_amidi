@@ -98,7 +98,7 @@
   padding: 10px 20px;
   border-radius: 20px;
   width: 100%;
-  display: inline-block;
+  display: flex;
 }
 
 .delete-progress-font{
@@ -114,4 +114,6 @@
   content: url('../../../assets/icons/delete_forever.svg');
 }
 
+/*
 .trash{  margin-left: 40%;  }
+*/
