@@ -11,7 +11,7 @@ import imgLogoAmidi from '../../../assets/logo.png';
 
 //var audioBackground static path, problem multiples HEAD instances
 // eslint-disable-next-line
-var audioBackground;
+let audioBackground;
 
 export class Head extends React.Component {
     constructor(props, context) {
