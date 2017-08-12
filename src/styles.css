@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 :root{
   --gray: #333;
   --gray-light: #aaa;
@@ -9,11 +11,10 @@
   --red-fail: #ff483f;
 }
 
-
 body{
   background-color: #52d9e8;
   color: #575756;
-  font-family: Arial, Helvetica, sans-serif ;
+  font-family: 'Comfortaa', cursive;
 }
 
 a{  color: black;  }
