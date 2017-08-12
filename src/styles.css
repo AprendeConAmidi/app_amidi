@@ -1,3 +1,14 @@
+:root{
+  --gray: #333;
+  --gray-light: #aaa;
+  --gray-lighter: #eee;
+  --space: 10px;
+  --blue: #428bca;
+  --blue-dark: #405e9b;
+  --green-success: #33be30;
+  --red-fail: #ff483f;
+}
+
 
 body{
   background-color: #52d9e8;

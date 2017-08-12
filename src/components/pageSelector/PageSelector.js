@@ -40,13 +40,14 @@ export class PageSelector extends React.Component{
   }
 
   updateAccessLevel(level){
-    let disableCssClass = "disabled-category";
-    if(level === '1'){return "";}
+    let disableCssClass = "";
+    if(level === '1'){return disableCssClass;}
     if(this.state.user && this.state.user.categoriesComplete){
       if(this.isLevelComplete(this.state.user, (level-1).toString(), this.state.categories)){
-        return "";
+        return disableCssClass;
       }
     }
+    disableCssClass = "disabled-category";
     return disableCssClass;
   }
 

@@ -28,6 +28,7 @@ export default function UtilLocalStorage() {
     let patt = new RegExp(/^\d+$/);
 
      if(item){
+       //repair Ulises
       if(typeof item === "object"){return item;}
       if(isObjectWithoutParse(item)){return JSON.parse(item);}
       if(patt.test(item)) {return parseFloat(item);}
