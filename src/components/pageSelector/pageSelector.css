@@ -1,13 +1,16 @@
 
 
-
-
 .title{
   text-align: center;
+  color: #ffffff;
 }
 
-.row-pair{
+.level:nth-child(odd) {
   background-color: #4ec1cf;
+}
+
+.level:nth-child(even) {
+  background-color: #52d9e8;
 }
 
 .disabled-category{

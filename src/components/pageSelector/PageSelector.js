@@ -64,8 +64,8 @@ export class PageSelector extends React.Component{
   }
 
   mountLevels() {
-    return this.state.levels.map((level,index) =>
-      <div key={level.toString()} className={(index%2 === 0) ? "level row-pair" : "level"}>{
+    return this.state.levels.map((level) =>
+      <div key={level.toString()} className="level">{
         this.state.categories.map((category) => {
           if (category.level === level) {
             return (
@@ -88,7 +88,7 @@ export class PageSelector extends React.Component{
       <div >
         <HeadConnect isMenu={true}/>
         <h1 className="title">El Libro De La Historia Canaria</h1>
-        <div id="levelsMount">{this.mountLevels()}</div>
+        <div id="levelsMount" >{this.mountLevels()}</div>
       </div>
     );
   }
