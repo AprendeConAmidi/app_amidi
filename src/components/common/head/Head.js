@@ -51,11 +51,7 @@ export class Head extends React.Component {
   }
 
   updateMusic(){
-    if(this.state.isMusic){
-      audioBackground.play();
-    }else{
-      audioBackground.pause();
-    }
+    this.state.isMusic ?  audioBackground.play() : audioBackground.pause();
   }
 
   turnMusic(){
