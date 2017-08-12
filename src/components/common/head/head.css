@@ -18,6 +18,14 @@
   margin-bottom: 80px;
 }
 
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0 4px 4px 0 !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
 .top-bar{
   position: fixed;
   background-color: var(--light-blue);
