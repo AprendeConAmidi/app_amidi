@@ -1,0 +1,48 @@
+.box{
+  text-align: center;
+  color: #fff;
+}
+
+.cta{
+  background-color: var(--color-button);
+  padding: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0 auto;
+  width: 20%;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.amidiWinner{
+  margin: 10px auto 0;
+  display: block;
+  max-width: 100vw;
+  min-width: 240px;
+  width: auto;
+  height: 60%;
+  min-height: 220px;
+  max-height: 300px;
+  background-color: #FF665f;
+  border: solid;
+}
+
+a{
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+/*iPad*/
+@media only screen and (max-width: 991px){
+.cta{
+    width: 30%;
+  }
+}
+
+/* Phones */
+@media only screen and (max-width: 480px){
+.cta{
+    width: 50%;
+  }
+}
