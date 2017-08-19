@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import * as paths from '../../routePaths';
-import "./start-styles.css";
+import "./start.css";
 import image_start from '../../assets/img/amidi_nubes.png';
 
 const Start = () => {
