@@ -42,7 +42,7 @@ describe("<CategoryPage/>", () =>{
 
     let modal = wrapper.find("#modal");
     expect(modal.hasClass("hidden")).toBe(false);
-    expect(modal.find("h2").text()).toBe("Te equivocaste");
+    expect(modal.find("h2").text()).toBe("Fallaste");
     expect(modal.find("h3").text()).toBe(questionStubStandard.correctAnswer);
     expect(wrapper.state().isSuccess).toBe(false);
   });
