@@ -262,12 +262,12 @@ export const serverContentStub = {
       "explanation": null,
       "type": "text",
       "category": "Pastoreo y Cereal 2",
-      "correctAnswer": "El riego por goteo",
+      "correctAnswer": "El riego mediante surcos",
       "question": "¿Cuál era el sistema tradicional de riego de los cultivos en Canarias? ",
       "__v": 0,
       "updated": "2017-05-01T17:33:24.625Z",
       "answers": [
-        "El riego mediante surcos ",
+        "El riego mediante surcos",
         "El riego por goteo",
         "El riego por tuberías."
       ]
@@ -661,6 +661,21 @@ export const serverContentStub = {
       ]
     },
     {
+      "_id": "59077717f303050011611234",
+      "explanation": null,
+      "type": "text",
+      "category": "Naturaleza 1",
+      "correctAnswer": "11 microclimas",
+      "question": "¿Cuantos microclimas diferentes existen en Tenerife?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "2 microclimas",
+        "11 microclimas",
+        "ninguno"
+      ]
+    },
+    {
       "_id": "59077717f303050011612435",
       "explanation": null,
       "type": "text",
@@ -751,22 +766,6 @@ export const serverContentStub = {
     },
     {
       "_id": "59077717f303050011617890",
-      "explanation": null,
-      "type": "text",
-      "category": "Naturaleza 1",
-      "correctAnswer": "Garajonay",
-      "question": "El bosque de Laurisilva es caracteristico del Parque Nacional de ....",
-      "__v": 0,
-      "updated": "2017-07-06T17:57:43.524Z",
-      "answers": [
-        "La caldera de Taburiente",
-        "Garajonay",
-        "Teide",
-        "Timanfaya"
-      ]
-    },
-    {
-      "_id": "59077717f303050011619012",
       "explanation": null,
       "type": "text",
       "category": "Naturaleza 1",
