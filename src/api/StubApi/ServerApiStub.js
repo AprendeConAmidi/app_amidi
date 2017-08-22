@@ -1374,11 +1374,11 @@ export const serverContentStub = {
     },{
       "name" : "Alimentos 1",
       "level": "2",
-      "image": "Pastoreo_Cereal",
+      "image": "Alimentos",
     },{
       "name" : "Cultura General 1",
       "level": "2",
-      "image": "Pastoreo_Cereal",
+      "image": "Cultura_General",
     },{
       "name" : "Pastoreo y Cereal 2",
       "level": "3",
@@ -1386,11 +1386,11 @@ export const serverContentStub = {
     },{
       "name" : "Alimentos 2",
       "level": "3",
-      "image": "Pastoreo_Cereal",
+      "image": "Alimentos",
     },{
       "name" : "Cultura General 2",
       "level": "4",
-      "image": "Pastoreo_Cereal",
+      "image": "Cultura_General",
     },{
       "name" : "Pastoreo y Cereal 3",
       "level": "4",
