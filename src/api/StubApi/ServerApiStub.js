@@ -796,7 +796,571 @@ export const serverContentStub = {
         "Islas Canarias",
         "Todas las anteriores y más"
       ]
-    }
+    },{
+      "_id": "12077717f303050011613401",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Guarapo",
+      "question": "¿Con que nombre se le conoce a la miel de palma?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Guarapo",
+        "Frangollo",
+        "Malvasía"
+      ]
+    },{
+      "_id": "12077717f303050011613402",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Gran Canaria",
+      "question": "El suspiro de Moya es elaborado en…",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Fuerteventura",
+        "Gran Canaria",
+        "Tenerife"
+      ]
+    },{
+      "_id": "12077717f303050011613403",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Gofio escaldado",
+      "question": "¿Qué comida se elabora con caldo de pescado?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Gofio escaldado",
+        "Puchero",
+        "Garbanzada"
+      ]
+    },{
+      "_id": "12077717f303050011613404",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Viernes Santo",
+      "question": "El sancocho es el plato más comido en…",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Fin de año",
+        "Martes de Carnaval",
+        "Viernes Santo"
+      ]
+    },{
+      "_id": "12077717f303050011613405",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Truchas de batata",
+      "question": "¿Cuál de los siguientes es un postre navideño típico de Canarias?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Quesadilla",
+        "Truchas de batata",
+        "Arroz con leche"
+      ]
+    },{
+      "_id": "12077717f303050011613406",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "El Hierro",
+      "question": "La quesadilla es un postre típico de…",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "La Gomera",
+        "La Palma",
+        "El Hierro"
+      ]
+    },{
+      "_id": "12077717f303050011613407",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Un pescado abierto en dos por el vientre",
+      "question": "La jarea es…",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Un pescado abierto en dos por el vientre",
+        "Una salsa que acompaña a la carne de cerdo",
+        "Un condimento que da sabor al pescado"
+      ]
+    },{
+      "_id": "12077717f303050011613408",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Varios meses",
+      "question": "El mojo picón puede conservarse en nevera durante",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Una semana",
+        "Un mes",
+        "Varios meses"
+      ]
+    },{
+      "_id": "12077717f303050011613409",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "Solo en las Islas Canarias",
+      "question": "El clipper de fresa se distribuye:",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "Por países de Europa",
+        "Por toda España",
+        "Solo en las Islas Canarias"
+      ]
+    },{
+      "_id": "12077717f303050011613410",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 1",
+      "correctAnswer": "El pimentón",
+      "question": "¿Qué ingrediente le da un tono rojizo al chorizo de Teror?",
+      "__v": 0,
+      "updated": "2017-07-06T17:57:43.524Z",
+      "answers": [
+        "El pimentón",
+        "La pimienta roja",
+        "Ninguno, es así porque está hecho con carne"
+      ]
+    },{
+      "_id": "13077717f303050011613401",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Gran Canaria y Lanzarote",
+      "question": "La Vela Latina Canaria se desarrolla sobre todo en:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Gran Canaria y Lanzarote",
+        "Tenerife y Lanzarote",
+        "Fuerteventura y Gran Canaria"
+      ]
+    },{
+      "_id": "13077717f303050011613402",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "5 años, un lustro",
+      "question": "¿Cada cuántos años se realiza el tradicional Baile de Los Enanos?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "4 años, en año bisiesto",
+        "5 años, un lustro",
+        "10 años, una década"
+      ]
+    },{
+      "_id": "13077717f303050011613403",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Vela Latina",
+      "question": "¿Cuál de los siguientes deportes NO es aborigen?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Salto del pastor",
+        "Lucha canaria",
+        "Vela Latina"
+      ]
+    },{
+      "_id": "13077717f303050011613404",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Agarre, cogida y bloqueo",
+      "question": "Las técnicas utilizadas en la lucha canaria se pueden dividir en tres grupos. ¿Cómo se llaman los grupos?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Agarre, cogida y bloqueo",
+        "Agarre, cogida de muslo y brega",
+        "Cogida, mañas y brega"
+      ]
+    },{
+      "_id": "13077717f303050011613405",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "La sabina",
+      "question": "El símbolo vegetal de El Hierro es:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "El viñátigo",
+        "El drago",
+        "La sabina"
+      ]
+    },{
+      "_id": "13077717f303050011613406",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Pulseo",
+      "question": "En el levantamiento de piedra, ¿cómo se le llama a levantar la piedra por encima de la cabeza, sin tocar el cuerpo?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Faena",
+        "Pulseo",
+        "Arico"
+      ]
+    },{
+      "_id": "13077717f303050011613407",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Es un lenguaje, al igual que un idioma",
+      "question": "El silbo gomero… ",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Es solo una forma de llamar a personas y animales",
+        "Es un lenguaje, al igual que un idioma",
+        "Únicamente se “hablaba” en La Gomera"
+      ]
+    },{
+      "_id": "13077717f303050011613408",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "3",
+      "question": "¿Cuántos colores diferentes podemos ver en las pinturas de La Cueva Pintada de Gáldar?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "3",
+        "4",
+        "6"
+      ]
+    },{
+      "_id": "13077717f303050011613409",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Gran Canaria",
+      "question": "El perro presa es el símbolo animal de:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Tenerife",
+        "La Palma",
+        "Gran Canaria"
+      ]
+    },{
+      "_id": "13077717f303050011613410",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 1",
+      "correctAnswer": "Naife",
+      "question": "¿Con qué nombre se conoce al cuchillo canario?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Magua",
+        "Naife",
+        "Enyesque"
+      ]
+    },{
+      "_id": "14077717f303050011613401",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Almendras",
+      "question": "Para elaborar la morcilla dulce, ¿qué ingrediente de los siguientes se utiliza?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Miel",
+        "Costilla de cerdo",
+        "Almendras"
+      ]
+    },{
+      "_id": "14077717f303050011613402",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "La Palma",
+      "question": "El bienmesabe es un postre tradicional de:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Gran Canaria",
+        "La Palma",
+        "Lanzarote"
+      ]
+    },{
+      "_id": "14077717f303050011613403",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Tenerife",
+      "question": "La papa negra es típica de:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Tenerife",
+        "Lanzarote",
+        "Todas las islas"
+      ]
+    },{
+      "_id": "14077717f303050011613404",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Lanzarote",
+      "question": "La uva malvasía está en todo el archipiélago, pero especialmente en:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Fuerteventura",
+        "Lanzarote",
+        "Gran Canaria"
+      ]
+    },{
+      "_id": "14077717f303050011613405",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Queso añejo, pimienta roja o palmera, ajo y aceite de oliva",
+      "question": "El almogrote, pasta típica de la Gomera que untan con pan, está compuesto por:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Almendras y otros frutos secos",
+        "Miel de palma, huevo, ralladura de limón y azúcar",
+        "Queso añejo, pimienta roja o palmera, ajo y aceite de oliva"
+      ]
+    },
+    {
+      "_id": "14077717f303050011613406",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Leche en polvo",
+      "question": "¿Cuál de las siguientes leches NO se utiliza para hacer la tarta de 3 leches?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Leche condensada",
+        "Leche en polvo",
+        "Leche evaporada"
+      ]
+    },
+    {
+      "_id": "14077717f303050011613407",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "3",
+      "question": "¿Cuántas carnes diferentes se utilizan para hacer un puchero?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "_id": "14077717f303050011613408",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Del cazón, un tipo de tiburón",
+      "question": "¿De qué animal se sacan los tollos?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Del cazón, un tipo de tiburón",
+        "De la caballa",
+        "De los lebranchos"
+      ]
+    },{
+      "_id": "14077717f303050011613409",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Lanzarote",
+      "question": "El frangollo es un postre típico de:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Lanzarote",
+        "Gran Canaria",
+        "El Hierro"
+      ]
+    },{
+      "_id": "14077717f303050011613410",
+      "explanation": null,
+      "type": "text",
+      "category": "Alimentos 2",
+      "correctAnswer": "Gofio escaldado",
+      "question": "¿Cuál de las siguientes comidas se decorada con cebollas?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Gofio escaldado",
+        "Sancocho",
+        "Pata asada"
+      ]
+    },{
+      "_id": "15077717f303050011613401",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "Todas son correctas",
+      "question": "Los botes de Vela Latina, con los que actualmente se compite, se utiliza para:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Faenas portuarias",
+        "Pesca",
+        "Traslado de pasajeros y mercancías",
+        "Todas son correctas"
+      ]
+    },{
+      "_id": "15077717f303050011613402",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "Las chácaras y el tambor",
+      "question": "¿Cuáles son los dos instrumentos más representativos de La Gomera?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Las chácaras y el tambor",
+        "El pito herreño y el timple",
+        "La bandurria y el tambor"
+      ]
+    },{
+      "_id": "15077717f303050011613403",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "7",
+      "question": "En la lucha del garrote, ¿cuántas pintaderas (niveles) debes alcanzar para pasar a un grado superior?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "5",
+        "6",
+        "7"
+      ]
+    },{
+      "_id": "15077717f303050011613404",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "Burra",
+      "question": "En la lucha del garrote, ¿cómo se llama la parte central del garrote?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Punta",
+        "Regatón",
+        "Burra"
+      ]
+    },{
+      "_id": "15077717f303050011613405",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "Bucio",
+      "question": "¿Cómo se llama la caracola que utilizaban los aborígenes para comunicarse?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Bucio",
+        "Tamarco",
+        "Inagua"
+      ]
+    },{
+      "_id": "15077717f303050011613406",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "En los Jameos del Agua",
+      "question": "El cangrejo ciego vive:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "En los Jameos del Agua",
+        "En las playas de Lanzarote",
+        "En el archipiélago Chinijo"
+      ]
+    },{
+      "_id": "15077717f303050011613407",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "12 puntos",
+      "question": "¿Cuántos puntos son necesarios para ganar en la bola canaria?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "8 puntos",
+        "10 puntos",
+        "12 puntos"
+      ]
+    },{
+      "_id": "15077717f303050011613408",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "Madera",
+      "question": "¿Qué material se utilizaba para hacer el pito herreño antiguamente?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "Metal",
+        "Madera",
+        "Plástico"
+      ]
+    },{
+      "_id": "15077717f303050011613409",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "100 kg",
+      "question": "¿Cuántos kilos puede llegar a pesar un arado?",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "75 kg",
+        "92 kg",
+        "100 kg"
+      ]
+    },{
+      "_id": "15077717f303050011613410",
+      "explanation": null,
+      "type": "text",
+      "category": "Cultura General 2",
+      "correctAnswer": "El drago",
+      "question": "El símbolo vegetal de Tenerife es:",
+      "__v": 0,
+      "updated": "2017-22-08T17:57:43.524Z",
+      "answers": [
+        "El drago",
+        "El cardón",
+        "La tabaiba dulce"
+      ]
+    },
   ],
   "categories":[
     {
@@ -804,19 +1368,33 @@ export const serverContentStub = {
       "level": "1",
       "image": "Pastoreo_Cereal",
     },{
-      "name" : "Pastoreo y Cereal 2",
-      "level": "2",
-      "image": "Pastoreo_Cereal",
-    },{
       "name" : "Naturaleza 1",
       "level": "2",
       "image": "Naturaleza",
     },{
-      "name" : "Pastoreo y Cereal 3",
+      "name" : "Alimentos 1",
+      "level": "2",
+      "image": "Pastoreo_Cereal",
+    },{
+      "name" : "Cultura General 1",
+      "level": "2",
+      "image": "Pastoreo_Cereal",
+    },{
+      "name" : "Pastoreo y Cereal 2",
       "level": "3",
       "image": "Pastoreo_Cereal",
-    },
+    },{
+      "name" : "Alimentos 2",
+      "level": "3",
+      "image": "Pastoreo_Cereal",
+    },{
+      "name" : "Cultura General 2",
+      "level": "4",
+      "image": "Pastoreo_Cereal",
+    },{
+      "name" : "Pastoreo y Cereal 3",
+      "level": "4",
+      "image": "Pastoreo_Cereal",
+    }
   ]
-
-
 };
