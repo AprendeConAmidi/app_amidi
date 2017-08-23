@@ -54,11 +54,13 @@ describe("<PageSelector />", () => {
     let wrapper = shallow(<PageSelector user={initialState} content={serverContentStub}/>);
     wrapper.setProps(propsStub);
 
-    let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 1","h4");
-    let linkCategoryNewAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 2","h4");
-    let linkCategoryNotAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 3","h4");
+    let linkCategoryAllowed = findContainsTagWithText(wrapper.find(Link),"Naturaleza 1","h4");
+    let linkCategoryNewAccess_1 = findContainsTagWithText(wrapper.find(Link),"Alimentos 1","h4");
+    let linkCategoryNewAccess_2 = findContainsTagWithText(wrapper.find(Link),"Cultura General 1","h4");
+    let linkCategoryNotAccess = findContainsTagWithText(wrapper.find(Link),"Pastoreo y Cereal 2","h4");
     expect(linkCategoryAllowed.hasClass("disabled-category")).toBe(false);
-    expect(linkCategoryNewAccess.hasClass("disabled-category")).toBe(false);
+    expect(linkCategoryNewAccess_1.hasClass("disabled-category")).toBe(false);
+    expect(linkCategoryNewAccess_2.hasClass("disabled-category")).toBe(false);
     expect(linkCategoryNotAccess.hasClass("disabled-category")).toBe(true);
   });
 
